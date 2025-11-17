@@ -78,7 +78,7 @@ const Projects = () => {
         { name: 'MySQL', icon: '/mysql.png' },
         { name: 'Tailwind', icon: '/tailwind_css.png' }
       ],
-      link: '#'
+      link: 'https://archillimatias.dev/'
     },
     {
       title: 'Tu  Catering',
@@ -90,7 +90,7 @@ const Projects = () => {
         { name: 'MySQL', icon: '/mysql.png' },
         { name: 'Tailwind', icon: '/tailwind_css.png' }
       ],
-      link: '#'
+      link: 'https://tucatering.com.ar/'
     },
     {
       title: 'Kern IT',
@@ -100,7 +100,7 @@ const Projects = () => {
         { name: 'React', icon: '/react.png' },
         { name: 'Tailwind', icon: '/tailwind_css.png' }
       ],
-      link: '#'
+      link: 'https://kern-it.global/'
     },
     {
       title: 'Parrilla Santo Fuego',
@@ -110,7 +110,7 @@ const Projects = () => {
         { name: 'React', icon: '/react.png' },
         { name: 'Tailwind', icon: '/tailwind_css.png' }
       ],
-      link: '#'
+      link: 'https://santo-fuego-landing.vercel.app/'
     }
   ];
 
