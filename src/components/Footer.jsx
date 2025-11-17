@@ -16,11 +16,13 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
           {/* Left - Name/Brand */}
           <div className="space-y-4">
-            <h3 className="text-2xl font-display font-bold text-white">
-              Leon Comolli
-            </h3>
+            <img 
+              src="/logodev.png" 
+              alt="Leon Comolli" 
+              className="h-20 w-auto object-contain"
+            />
             <p className="text-gray-400 text-sm">
-              Full Stack Developer
+              Programador Full Stack
             </p>
             <p className="text-gray-500 text-sm">
               Transformando ideas en experiencias digitales

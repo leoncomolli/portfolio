@@ -14,7 +14,7 @@ const Hero = () => {
   return (
     <section id="hero" className="min-h-screen flex items-center section-padding pt-32 relative">
       <div className="max-w-7xl mx-auto w-full">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-32 items-center">
             {/* Left Side - Logo and Info */}
             <div className="space-y-8">
               <div className="w-full max-w-2xl">
@@ -58,22 +58,27 @@ const Hero = () => {
             </div>
 
           {/* Right Side - Client Slider */}
-          <div className="flex flex-col justify-center">
-            <div className="mb-6">
-              <h4 className="text-gray-500 text-sm uppercase tracking-wider mb-4">
-                Han confiado en mí
-              </h4>
-            </div>
+          <div className="flex flex-col justify-start">
             <ClientSlider />
           </div>
         </div>
       </div>
 
       {/* Scroll indicator */}
-      <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <div className="w-6 h-10 border-2 border-gray-700 rounded-full flex justify-center pt-2">
-          <div className="w-1 h-2 bg-accent-green rounded-full"></div>
-        </div>
+      <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2">
+        <svg 
+          className="w-6 h-6 text-accent-green" 
+          fill="none" 
+          stroke="currentColor" 
+          viewBox="0 0 24 24"
+        >
+          <path 
+            strokeLinecap="round" 
+            strokeLinejoin="round" 
+            strokeWidth="3" 
+            d="M19 9l-7 7-7-7"
+          />
+        </svg>
       </div>
     </section>
   );

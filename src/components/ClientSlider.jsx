@@ -19,39 +19,31 @@ const ClientSlider = () => {
   }, [clients.length]);
 
   return (
-    <div className="relative overflow-hidden py-12 flex items-center justify-center min-h-[400px]">
-      {clients.map((client, index) => (
-        <div
-          key={index}
-          className={`absolute transition-all duration-700 ease-in-out flex items-center justify-center w-full ${
-            index === currentIndex
-              ? 'opacity-100 scale-100'
-              : 'opacity-0 scale-95'
-          }`}
-          style={{ pointerEvents: index === currentIndex ? 'auto' : 'none' }}
-        >
-          <img
-            src={client.logo}
-            alt={client.name}
-            className="max-h-64 w-auto max-w-md object-contain filter brightness-0 invert"
-            draggable="false"
-          />
-        </div>
-      ))}
-
-      {/* Indicators */}
-      <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-3 z-10">
-        {clients.map((_, index) => (
-          <button
+    <div className="relative overflow-hidden py-12 flex flex-col items-center justify-center min-h-[350px]">
+      <div className="mb-6 text-center">
+        <h4 className="text-gray-500 text-sm uppercase tracking-wider">
+          Han confiado en mí
+        </h4>
+      </div>
+      
+      <div className="relative w-full flex items-center justify-center flex-1">
+        {clients.map((client, index) => (
+          <div
             key={index}
-            onClick={() => setCurrentIndex(index)}
-            className={`transition-all duration-300 rounded-full ${
+            className={`absolute transition-all duration-700 ease-in-out flex items-center justify-center w-full ${
               index === currentIndex
-                ? 'bg-accent-green w-8 h-2'
-                : 'bg-gray-600 hover:bg-gray-500 w-2 h-2'
+                ? 'opacity-100 scale-100'
+                : 'opacity-0 scale-95'
             }`}
-            aria-label={`Go to slide ${index + 1}`}
-          />
+            style={{ pointerEvents: index === currentIndex ? 'auto' : 'none' }}
+          >
+            <img
+              src={client.logo}
+              alt={client.name}
+              className="max-h-64 w-auto max-w-md object-contain filter brightness-0 invert"
+              draggable="false"
+            />
+          </div>
         ))}
       </div>
     </div>
