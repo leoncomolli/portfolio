@@ -6,8 +6,9 @@ const Hero = () => {
     { name: 'React', icon: '/react.png' },
     { name: 'JavaScript', icon: '/javascript.png' },
     { name: 'Laravel', icon: '/laravel.png' },
-    { name: 'Tailwind CSS', icon: '/tailwind_css.png' },
-    { name: 'MySQL', icon: '/mysql.png' }
+    { name: 'Tailwind', icon: '/tailwind_css.png' },
+    { name: 'MySQL', icon: '/mysql.png' },
+    { name: 'GitHub', icon: '/github.png' }
   ];
 
   return (
