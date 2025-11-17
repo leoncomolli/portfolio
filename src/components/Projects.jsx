@@ -1,18 +1,23 @@
 import React from 'react';
 
-const ProjectCard = ({ title, description, work, color, category }) => {
+const ProjectCard = ({ title, description, work, color, category, image }) => {
   return (
     <div className="group relative overflow-hidden rounded-xl bg-gray-900/50 border border-gray-800 hover:border-gray-700 transition-all duration-300 hover:transform hover:scale-[1.02]">
+      {/* Project Image */}
+      {image && (
+        <div className="w-full h-48 md:h-64 overflow-hidden">
+          <img 
+            src={image} 
+            alt={title}
+            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+          />
+        </div>
+      )}
+      
       {/* Color accent bar */}
       <div className="absolute top-0 left-0 right-0 h-1" style={{ backgroundColor: color }}></div>
       
-      <div className="p-6 md:p-8 space-y-4">
-        {/* Category badge */}
-        <div className="flex items-center justify-between">
-          <span className="text-xs uppercase tracking-wider text-gray-500">{category}</span>
-          <div className="w-2 h-2 rounded-full" style={{ backgroundColor: color }}></div>
-        </div>
-
+      <div className="relative z-10 p-6 md:p-8 space-y-4">
         {/* Title */}
         <h3 className="text-2xl md:text-3xl font-bold text-white group-hover:text-accent-green transition-colors duration-300">
           {title}
@@ -52,6 +57,7 @@ const Projects = () => {
       title: 'Agrofina',
       category: 'Agroquímicos',
       color: '#4ade80',
+      image: '/card-agrofina.jpg',
       description: 'Plataforma completa para empresa de agroquímicos con gestión integral de productos y contenido.',
       work: [
         'Web institucional moderna y responsive',
@@ -65,6 +71,7 @@ const Projects = () => {
       title: 'TuCatering',
       category: 'Soluciones Alimenticias',
       color: '#fb923c',
+      image: '/card-tucatering.jpg',
       description: 'Sistema completo de gestión de catering escolar con administración de menús y pagos.',
       work: [
         'Landing page atractiva con diseño naranja/blanco',
@@ -78,6 +85,7 @@ const Projects = () => {
       title: 'Kern IT',
       category: 'Software Médico',
       color: '#9BA6A1',
+      image: '/card-kernit.jpg',
       description: 'Sitio institucional para empresa de software especializada en soluciones médicas.',
       work: [
         'Web institucional de 4 secciones',
@@ -90,6 +98,7 @@ const Projects = () => {
       title: 'Parrilla Santo Fuego',
       category: 'Gastronomía',
       color: '#ef4444',
+      image: '/card-santofuego.jpg',
       description: 'Landing page para parrilla con diseño impactante en negro y rojo.',
       work: [
         'Landing page minimalista',
@@ -103,11 +112,14 @@ const Projects = () => {
   return (
     <section id="projects" className="section-padding bg-black">
       <div className="max-w-7xl mx-auto">
-        {/* Header */}
+        {/* Header con imagen */}
         <div className="text-center space-y-4 mb-16">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-white">
-            Proyectos
-          </h2>
+          <img
+            src="/proyectospublicados-logo.png"
+            alt="Proyectos publicados"
+            className="mx-auto w-[280px] md:w-[380px] lg:w-[450px] h-auto mb-2"
+            style={{ objectFit: 'contain' }}
+          />
           <div className="w-24 h-1 bg-accent-green mx-auto"></div>
           <p className="text-gray-400 text-lg max-w-2xl mx-auto mt-6">
             Soluciones web diseñadas y desarrolladas para clientes de diversos rubros
