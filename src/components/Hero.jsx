@@ -11,6 +11,13 @@ const Hero = () => {
     { name: 'GitHub', icon: '/github.png' }
   ];
 
+  const scrollToSection = (id) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <section id="hero" className="min-h-screen flex items-center section-padding pt-32 relative">
       <div className="max-w-7xl mx-auto w-full">
@@ -28,7 +35,7 @@ const Hero = () => {
 
               <div className="space-y-6 border-l-2 border-accent-green pl-6">
                 <h3 className="text-2xl md:text-3xl font-semibold text-accent-green">
-                  Programador Full Stack
+                  Desarrollador Full Stack
                 </h3>
 
                 <div className="flex flex-wrap gap-4 justify-center md:justify-start">
@@ -60,6 +67,21 @@ const Hero = () => {
           {/* Right Side - Client Slider */}
           <div className="flex flex-col justify-start">
             <ClientSlider />
+            
+            <div className="flex flex-wrap gap-4 justify-center mt-8">
+              <button
+                onClick={() => scrollToSection('projects')}
+                className="px-8 py-3 bg-white text-black font-medium rounded-full transition-all duration-300 transform hover:scale-105 hover:bg-gray-200"
+              >
+                Ver mis proyectos
+              </button>
+              <button
+                onClick={() => scrollToSection('contact')}
+                className="px-8 py-3 bg-transparent border-2 border-accent-green text-accent-green font-medium rounded-full hover:bg-accent-green hover:text-white transition-all duration-300"
+              >
+                Contáctame
+              </button>
+            </div>
           </div>
         </div>
       </div>
