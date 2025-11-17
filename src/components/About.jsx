@@ -22,7 +22,7 @@ const About = () => {
           <img
             src="/sobremi-logo.png"
             alt="Sobre mí"
-            className="mx-auto h-24 md:h-32 lg:h-40 w-auto object-contain"
+            className="mx-auto w-[220px] md:w-[300px] lg:w-[360px] h-auto object-contain"
           />
           <div className="w-24 h-1 bg-accent-green mx-auto"></div>
         </div>

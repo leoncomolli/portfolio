@@ -1,52 +1,67 @@
 import React from 'react';
 
-const ProjectCard = ({ title, description, work, color, category, image }) => {
+const ProjectCard = ({ title, description, technologies, image, link }) => {
   return (
-    <div className="group relative overflow-hidden rounded-xl bg-gray-900/50 border border-gray-800 hover:border-gray-700 transition-all duration-300 hover:transform hover:scale-[1.02]">
-      {/* Project Image */}
+    <div className="group relative overflow-hidden rounded-2xl bg-[#0e0e0e] border border-gray-800/50 hover:border-gray-600 transition-all duration-500 hover:-translate-y-1 hover:shadow-2xl hover:shadow-black/50 h-full flex flex-col">
+      {/* Project Image - 50% height */}
       {image && (
-        <div className="w-full h-48 md:h-64 overflow-hidden">
+        <div className="w-full h-64 md:h-72 overflow-hidden rounded-t-2xl">
           <img 
             src={image} 
             alt={title}
-            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+            className="w-full h-full object-cover group-hover:scale-102 transition-transform duration-700"
           />
         </div>
       )}
       
-      {/* Color accent bar */}
-      <div className="absolute top-0 left-0 right-0 h-1" style={{ backgroundColor: color }}></div>
-      
-      <div className="relative z-10 p-6 md:p-8 space-y-4">
+      {/* Content Section */}
+      <div className="relative z-10 p-6 md:p-8 space-y-5 flex-1 flex flex-col">
         {/* Title */}
-        <h3 className="text-2xl md:text-3xl font-bold text-white group-hover:text-accent-green transition-colors duration-300">
+        <h3 className="text-2xl md:text-3xl font-bold text-white tracking-tight">
           {title}
         </h3>
 
         {/* Description */}
-        <p className="text-gray-400 leading-relaxed">
+        <p className="text-gray-400 leading-relaxed text-sm md:text-base line-clamp-3">
           {description}
         </p>
 
-        {/* Work details */}
-        <div className="pt-4 border-t border-gray-800">
-          <h4 className="text-sm font-semibold text-accent-green mb-3">Trabajo realizado:</h4>
-          <ul className="space-y-2">
-            {work.map((item, index) => (
-              <li key={index} className="flex items-start text-gray-300 text-sm">
-                <span className="mr-2 mt-1.5 w-1.5 h-1.5 rounded-full bg-accent-green flex-shrink-0"></span>
-                <span>{item}</span>
-              </li>
+        {/* Technologies Pills */}
+        {technologies && (
+          <div className="flex flex-wrap gap-2 pt-2">
+            {technologies.map((tech, index) => (
+              <span 
+                key={index}
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium bg-[#0e0e0e] text-white border border-white rounded-full"
+              >
+                {tech.icon && (
+                  <img 
+                    src={tech.icon} 
+                    alt={tech.name}
+                    className="w-3.5 h-3.5 object-contain"
+                  />
+                )}
+                {tech.name}
+              </span>
             ))}
-          </ul>
+          </div>
+        )}
+
+        {/* CTA Button */}
+        <div className="mt-auto pt-4">
+          <a
+            href={link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-6 py-2.5 border border-white/80 text-white text-sm font-medium rounded-full hover:bg-white hover:text-black hover:shadow-lg hover:shadow-white/20 hover:scale-105 transition-all duration-300"
+          >
+            Ver proyecto
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </a>
         </div>
       </div>
-
-      {/* Hover effect overlay */}
-      <div 
-        className="absolute inset-0 opacity-0 group-hover:opacity-5 transition-opacity duration-300 pointer-events-none"
-        style={{ backgroundColor: color }}
-      ></div>
     </div>
   );
 };
@@ -55,57 +70,47 @@ const Projects = () => {
   const projects = [
     {
       title: 'Agrofina',
-      category: 'Agroquímicos',
-      color: '#4ade80',
       image: '/card-agrofina.jpg',
-      description: 'Plataforma completa para empresa de agroquímicos con gestión integral de productos y contenido.',
-      work: [
-        'Web institucional moderna y responsive',
-        'Gestor de productos con catálogo dinámico',
-        'Panel administrador con carga/edición de productos',
-        'Sistema de gestión de noticias',
-        'Carga y gestión de PDFs mensuales'
-      ]
+      description: 'Sitio institucional para empresa de agroquímicos con panel de administracion para la gestión integral de productos, novedades y noticias, con el objetivo de hacerlo autoadministrable.',
+      technologies: [
+        { name: 'Laravel', icon: '/laravel.png' },
+        { name: 'React', icon: '/react.png' },
+        { name: 'MySQL', icon: '/mysql.png' },
+        { name: 'Tailwind', icon: '/tailwind_css.png' }
+      ],
+      link: '#'
     },
     {
-      title: 'TuCatering',
-      category: 'Soluciones Alimenticias',
-      color: '#fb923c',
+      title: 'Tu  Catering',
       image: '/card-tucatering.jpg',
-      description: 'Sistema completo de gestión de catering escolar con administración de menús y pagos.',
-      work: [
-        'Landing page atractiva con diseño naranja/blanco',
-        'Sistema de menú mensual para padres',
-        'Panel administrativo completo',
-        'Gestión de alumnos y servicios',
-        'Control de pagos y exportación a Excel'
-      ]
+      description: 'Landing page y sistema de gestión de catering escolar con administración de menús, control de pagos y panel para familias. Incluye calendario para reservar servicios, gestión de hijos y contratos.',
+      technologies: [
+        { name: 'Laravel', icon: '/laravel.png' },
+        { name: 'React', icon: '/react.png' },
+        { name: 'MySQL', icon: '/mysql.png' },
+        { name: 'Tailwind', icon: '/tailwind_css.png' }
+      ],
+      link: '#'
     },
     {
       title: 'Kern IT',
-      category: 'Software Médico',
-      color: '#9BA6A1',
       image: '/card-kernit.jpg',
-      description: 'Sitio institucional para empresa de software especializada en soluciones médicas.',
-      work: [
-        'Web institucional de 4 secciones',
-        'Diseño profesional con paleta corporativa',
-        'Optimización para sector salud',
-        'Responsive design'
-      ]
+      description: 'Sitio institucional para empresa de software especializada en soluciones médicas con diseño profesional optimizado.',
+      technologies: [
+        { name: 'React', icon: '/react.png' },
+        { name: 'Tailwind', icon: '/tailwind_css.png' }
+      ],
+      link: '#'
     },
     {
       title: 'Parrilla Santo Fuego',
-      category: 'Gastronomía',
-      color: '#ef4444',
       image: '/card-santofuego.jpg',
-      description: 'Landing page para parrilla con diseño impactante en negro y rojo.',
-      work: [
-        'Landing page minimalista',
-        'Diseño de alto impacto visual',
-        'Optimizada para conversión',
-        'Galería de productos'
-      ]
+      description: 'Landing page minimalista con enfoque gastronomico para parrilla, diseño de alto impacto visual.',
+      technologies: [
+        { name: 'React', icon: '/react.png' },
+        { name: 'Tailwind', icon: '/tailwind_css.png' }
+      ],
+      link: '#'
     }
   ];
 
@@ -120,14 +125,13 @@ const Projects = () => {
             className="mx-auto w-[280px] md:w-[380px] lg:w-[450px] h-auto mb-2"
             style={{ objectFit: 'contain' }}
           />
-          <div className="w-24 h-1 bg-accent-green mx-auto"></div>
-          <p className="text-gray-400 text-lg max-w-2xl mx-auto mt-6">
+          <p className="text-gray-400 text-base md:text-lg max-w-2xl mx-auto mt-6">
             Soluciones web diseñadas y desarrolladas para clientes de diversos rubros
           </p>
         </div>
 
         {/* Projects Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10">
           {projects.map((project, index) => (
             <ProjectCard key={index} {...project} />
           ))}

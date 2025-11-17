@@ -22,7 +22,7 @@ const Footer = () => {
               className="h-20 w-auto object-contain"
             />
             <p className="text-gray-400 text-sm">
-              Programador Full Stack
+              Desarrollador Full Stack
             </p>
             <p className="text-gray-500 text-sm">
               Transformando ideas en experiencias digitales
