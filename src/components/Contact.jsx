@@ -88,7 +88,7 @@ const Contact = () => {
 
               <button
                 type="submit"
-                className="btn-primary w-full cursor-pointer"
+                className="inline-flex items-center justify-center gap-2 px-6 py-2.5 bg-white text-black text-sm font-medium rounded-full hover:bg-gray-200 hover:shadow-lg hover:shadow-white/20 hover:scale-105 transition-all duration-300 cursor-pointer w-full"
               >
                 Enviar mensaje
               </button>
