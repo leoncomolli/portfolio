@@ -54,16 +54,49 @@ const Contact = () => {
                 </a>
               </div>
 
-              {/* CTA Button */}
-              <a
-                href={mailtoLink}
-                className="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-white text-black text-base font-semibold rounded-full hover:bg-gray-200 hover:shadow-lg hover:shadow-white/20 hover:scale-105 transition-all duration-300 cursor-pointer"
-              >
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-                </svg>
-                Enviar email
-              </a>
+              {/* CTA Buttons */}
+              <div className="flex flex-row gap-3">
+                <a
+                  href={mailtoLink}
+                  className="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-white text-black text-base font-semibold rounded-full hover:bg-gray-200 hover:shadow-lg hover:shadow-white/20 hover:scale-105 transition-all duration-300 cursor-pointer"
+                >
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                  </svg>
+                  Enviar mail
+                </a>
+                <button
+                  type="button"
+                  onClick={e => {
+                    navigator.clipboard.writeText('leoncomolli@gmail.com');
+                    const toast = document.createElement('div');
+                    toast.textContent = 'Mail copiado con éxito';
+                    toast.style.position = 'fixed';
+                    toast.style.pointerEvents = 'none';
+                    toast.style.background = '#222';
+                    toast.style.color = '#fff';
+                    toast.style.padding = '8px 18px';
+                    toast.style.borderRadius = '999px';
+                    toast.style.fontSize = '1rem';
+                    toast.style.zIndex = '9999';
+                    toast.style.boxShadow = '0 2px 16px #0008';
+                    document.body.appendChild(toast);
+                    function moveToast(ev) {
+                      toast.style.left = ev.clientX + 18 + 'px';
+                      toast.style.top = ev.clientY - 18 + 'px';
+                    }
+                    moveToast(e);
+                    document.addEventListener('mousemove', moveToast);
+                    setTimeout(() => {
+                      toast.remove();
+                      document.removeEventListener('mousemove', moveToast);
+                    }, 1800);
+                  }}
+                  className="inline-flex items-center justify-center gap-2 px-8 py-3.5 border border-white/80 text-white text-base font-semibold rounded-full hover:bg-white hover:text-black hover:shadow-lg hover:shadow-white/20 hover:scale-105 transition-all duration-300 cursor-pointer"
+                >
+                  Copiar mail
+                </button>
+              </div>
 
               {/* Response Time */}
               <p className="text-sm text-gray-500 flex items-center gap-2">
