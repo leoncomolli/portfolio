@@ -19,8 +19,8 @@ const ClientSlider = () => {
   }, [clients.length]);
 
   return (
-    <div className="relative overflow-hidden py-12 flex flex-col items-center justify-center min-h-[350px]">
-      <div className="mb-6 text-center">
+    <div className="relative overflow-hidden py-6 md:py-12 flex flex-col items-center justify-center min-h-[250px] md:min-h-[350px]">
+      <div className="mb-4 md:mb-6 text-center">
         <h4 className="text-gray-500 text-sm uppercase tracking-wider">
           Han confiado en mí
         </h4>

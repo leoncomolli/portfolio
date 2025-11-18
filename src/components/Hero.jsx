@@ -75,16 +75,14 @@ const Hero = () => {
                 </div>
 
                 {/* Mobile - Carousel with 3 technologies */}
-                <div className="md:hidden relative overflow-hidden h-32">
+                <div className="md:hidden relative overflow-hidden h-28">
                   {techGroups.map((group, groupIndex) => (
                     <div
                       key={groupIndex}
                       className={`absolute w-full flex gap-4 justify-start transition-all duration-700 ease-in-out ${
                         groupIndex === currentTechGroup
                           ? 'opacity-100 translate-y-0'
-                          : groupIndex < currentTechGroup
-                          ? 'opacity-0 -translate-y-full'
-                          : 'opacity-0 translate-y-full'
+                          : 'opacity-0 -translate-y-full'
                       }`}
                     >
                       {group.map((tech, index) => (
@@ -107,7 +105,7 @@ const Hero = () => {
                   ))}
                 </div>
 
-                <p className="text-gray-400 text-lg leading-relaxed max-w-xl">
+                <p className="text-gray-400 text-lg leading-relaxed max-w-xl mt-2">
                   Apasionado por el desarrollo web, creo soluciones que combinan estética, 
                   funcionalidad y rendimiento. Transformo ideas en experiencias digitales profesionales y escalables.
                 </p>
