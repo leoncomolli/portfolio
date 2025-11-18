@@ -36,7 +36,7 @@ const Footer = () => {
               <li>
                 <button
                   onClick={() => scrollToSection('hero')}
-                  className="text-gray-400 hover:text-accent-green transition-colors duration-200"
+                  className="text-gray-400 hover:text-white transition-colors duration-200 cursor-pointer"
                 >
                   Inicio
                 </button>
@@ -44,7 +44,7 @@ const Footer = () => {
               <li>
                 <button
                   onClick={() => scrollToSection('about')}
-                  className="text-gray-400 hover:text-accent-green transition-colors duration-200"
+                  className="text-gray-400 hover:text-white transition-colors duration-200 cursor-pointer"
                 >
                   Sobre mí
                 </button>
@@ -52,7 +52,7 @@ const Footer = () => {
               <li>
                 <button
                   onClick={() => scrollToSection('projects')}
-                  className="text-gray-400 hover:text-accent-green transition-colors duration-200"
+                  className="text-gray-400 hover:text-white transition-colors duration-200 cursor-pointer"
                 >
                   Proyectos
                 </button>
@@ -60,7 +60,7 @@ const Footer = () => {
               <li>
                 <button
                   onClick={() => scrollToSection('contact')}
-                  className="text-gray-400 hover:text-accent-green transition-colors duration-200"
+                  className="text-gray-400 hover:text-white transition-colors duration-200 cursor-pointer"
                 >
                   Contacto
                 </button>

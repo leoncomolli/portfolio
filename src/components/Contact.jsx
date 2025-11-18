@@ -88,7 +88,7 @@ const Contact = () => {
 
               <button
                 type="submit"
-                className="btn-primary w-full"
+                className="btn-primary w-full cursor-pointer"
               >
                 Enviar mensaje
               </button>

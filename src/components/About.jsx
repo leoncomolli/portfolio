@@ -49,14 +49,14 @@ const About = () => {
         <div className="flex flex-wrap gap-4 justify-center mt-8">
           <button
             onClick={scrollToProjects}
-            className="px-8 py-3 bg-white text-black font-medium rounded-full transition-all duration-300 transform hover:scale-105 hover:bg-gray-200"
+            className="px-8 py-3 bg-white text-black font-medium rounded-full transition-all duration-300 transform hover:scale-105 hover:bg-gray-200 cursor-pointer"
           >
             Mira mis proyectos
           </button>
           <a
             href="/cv.pdf"
             download
-            className="px-8 py-3 bg-transparent border-2 border-white text-white font-medium rounded-full hover:bg-white hover:text-black transition-all duration-300 inline-block"
+            className="px-8 py-3 bg-transparent border-2 border-white text-white font-medium rounded-full hover:bg-white hover:text-black transition-all duration-300 inline-block cursor-pointer"
           >
             Descargar CV
           </a>

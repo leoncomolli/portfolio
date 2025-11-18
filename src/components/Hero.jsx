@@ -38,7 +38,7 @@ const Hero = () => {
                   Desarrollador Full Stack
                 </h3>
 
-                <div className="flex flex-wrap gap-4 justify-center md:justify-start">
+                <div className="flex flex-wrap gap-4 justify-start">
                   {technologies.map((tech, index) => (
                     <div
                       key={index}
@@ -71,13 +71,13 @@ const Hero = () => {
             <div className="flex flex-wrap gap-4 justify-center mt-8">
               <button
                 onClick={() => scrollToSection('projects')}
-                className="px-8 py-3 bg-white text-black font-medium rounded-full transition-all duration-300 transform hover:scale-105 hover:bg-gray-200"
+                className="px-8 py-3 bg-white text-black font-medium rounded-full transition-all duration-300 transform hover:scale-105 hover:bg-gray-200 cursor-pointer"
               >
                 Ver mis proyectos
               </button>
               <button
                 onClick={() => scrollToSection('contact')}
-                className="px-8 py-3 bg-transparent border-2 border-accent-green text-accent-green font-medium rounded-full hover:bg-accent-green hover:text-white transition-all duration-300"
+                className="px-8 py-3 bg-transparent border-2 border-accent-green text-accent-green font-medium rounded-full hover:bg-accent-green hover:text-white transition-all duration-300 cursor-pointer"
               >
                 Contáctame
               </button>

@@ -53,7 +53,7 @@ const ProjectCard = ({ title, description, technologies, image, link }) => {
             href={link}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-6 py-2.5 border border-white/80 text-white text-sm font-medium rounded-full hover:bg-white hover:text-black hover:shadow-lg hover:shadow-white/20 hover:scale-105 transition-all duration-300"
+            className="inline-flex items-center gap-2 px-6 py-2.5 border border-white/80 text-white text-sm font-medium rounded-full hover:bg-white hover:text-black hover:shadow-lg hover:shadow-white/20 hover:scale-105 transition-all duration-300 cursor-pointer"
           >
             Ver proyecto
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
