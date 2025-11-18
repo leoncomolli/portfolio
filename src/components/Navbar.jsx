@@ -1,8 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('hero');
+  const [underlineStyle, setUnderlineStyle] = useState({ left: 0, width: 0 });
+  const navRefs = useRef({});
 
   useEffect(() => {
     const handleScroll = () => {
@@ -27,6 +29,15 @@ const Navbar = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  useEffect(() => {
+    // Update underline position when active section changes
+    const activeButton = navRefs.current[activeSection];
+    if (activeButton) {
+      const { offsetLeft, offsetWidth } = activeButton;
+      setUnderlineStyle({ left: offsetLeft, width: offsetWidth });
+    }
+  }, [activeSection]);
 
   const scrollToSection = (id) => {
     const element = document.getElementById(id);
@@ -54,15 +65,15 @@ const Navbar = () => {
           <div 
             className="absolute bottom-0 h-0.5 bg-white transition-all duration-500 ease-out"
             style={{
-              left: `${navItems.findIndex(item => item.id === activeSection) * (100 / navItems.length)}%`,
-              width: `${100 / navItems.length}%`,
-              transform: 'translateX(0)'
+              left: `${underlineStyle.left}px`,
+              width: `${underlineStyle.width}px`
             }}
           />
           
           {navItems.map((item) => (
-            <li key={item.id} className="relative">
+            <li key={item.id}>
               <button
+                ref={(el) => (navRefs.current[item.id] = el)}
                 onClick={() => scrollToSection(item.id)}
                 className={`text-gray-300 hover:text-white transition-all duration-200 font-medium cursor-pointer pb-1 ${
                   activeSection === item.id ? 'text-white' : ''
