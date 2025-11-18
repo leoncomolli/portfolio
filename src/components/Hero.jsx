@@ -3,6 +3,8 @@ import ClientSlider from './ClientSlider';
 
 const Hero = () => {
   const [currentTechGroup, setCurrentTechGroup] = useState(0);
+  const [groupAPosition, setGroupAPosition] = useState(0); // 0 = center, 100 = bottom, -100 = top
+  const [groupBPosition, setGroupBPosition] = useState(-100); // Start at top
 
   const technologies = [
     { name: 'React', icon: 'react.png' },
@@ -22,7 +24,23 @@ const Hero = () => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentTechGroup((prev) => (prev + 1) % 2);
+      setCurrentTechGroup((prev) => {
+        const next = (prev + 1) % 2;
+        
+        if (next === 0) {
+          // Grupo A va a entrar
+          setGroupBPosition(100); // Grupo B sale hacia abajo
+          setTimeout(() => setGroupBPosition(-100), 700); // Después se reposiciona arriba
+          setGroupAPosition(0); // Grupo A entra desde arriba
+        } else {
+          // Grupo B va a entrar
+          setGroupAPosition(100); // Grupo A sale hacia abajo
+          setTimeout(() => setGroupAPosition(-100), 700); // Después se reposiciona arriba
+          setGroupBPosition(0); // Grupo B entra desde arriba
+        }
+        
+        return next;
+      });
     }, 3000);
 
     return () => clearInterval(interval);
@@ -81,10 +99,8 @@ const Hero = () => {
                   <div
                     className="absolute w-full flex gap-4 justify-start"
                     style={{
-                      transform: currentTechGroup === 0 
-                        ? 'translateY(0)' 
-                        : 'translateY(100%)',
-                      transition: 'transform 700ms ease-in-out'
+                      transform: `translateY(${groupAPosition}%)`,
+                      transition: groupAPosition === -100 && currentTechGroup === 1 ? 'none' : 'transform 700ms ease-in-out'
                     }}
                   >
                     {techGroups[0].map((tech, index) => (
@@ -109,10 +125,8 @@ const Hero = () => {
                   <div
                     className="absolute w-full flex gap-4 justify-start"
                     style={{
-                      transform: currentTechGroup === 1 
-                        ? 'translateY(0)' 
-                        : 'translateY(-100%)',
-                      transition: 'transform 700ms ease-in-out'
+                      transform: `translateY(${groupBPosition}%)`,
+                      transition: groupBPosition === -100 && currentTechGroup === 0 ? 'none' : 'transform 700ms ease-in-out'
                     }}
                   >
                     {techGroups[1].map((tech, index) => (
