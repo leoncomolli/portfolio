@@ -82,7 +82,9 @@ const Hero = () => {
                       className={`absolute w-full flex gap-4 justify-start transition-all duration-700 ease-in-out ${
                         groupIndex === currentTechGroup
                           ? 'opacity-100 translate-y-0'
-                          : 'opacity-0 -translate-y-full'
+                          : groupIndex === (currentTechGroup + 1) % techGroups.length
+                          ? 'opacity-0 -translate-y-full'
+                          : 'opacity-0 translate-y-full'
                       }`}
                     >
                       {group.map((tech, index) => (
@@ -135,7 +137,7 @@ const Hero = () => {
       </div>
 
       {/* Scroll indicator */}
-      <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2">
+      <div className="absolute bottom-10 md:bottom-10 bottom-16 left-1/2 transform -translate-x-1/2">
         <svg 
           className="w-6 h-6 text-accent-green" 
           fill="none" 
