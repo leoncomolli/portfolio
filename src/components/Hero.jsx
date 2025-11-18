@@ -3,6 +3,7 @@ import ClientSlider from './ClientSlider';
 
 const Hero = () => {
   const [currentTechGroup, setCurrentTechGroup] = useState(0);
+  const [prevTechGroup, setPrevTechGroup] = useState(0);
 
   const technologies = [
     { name: 'React', icon: 'react.png' },
@@ -21,11 +22,12 @@ const Hero = () => {
 
   useEffect(() => {
     const interval = setInterval(() => {
+      setPrevTechGroup(currentTechGroup);
       setCurrentTechGroup((prev) => (prev + 1) % techGroups.length);
     }, 3000);
 
     return () => clearInterval(interval);
-  }, [techGroups.length]);
+  }, [techGroups.length, currentTechGroup]);
 
   const scrollToSection = (id) => {
     const element = document.getElementById(id);
@@ -82,7 +84,9 @@ const Hero = () => {
                       className={`absolute w-full flex gap-4 justify-start transition-all duration-700 ease-in-out ${
                         groupIndex === currentTechGroup
                           ? 'opacity-100 translate-y-0'
-                          : 'opacity-0 translate-y-full'
+                          : groupIndex === prevTechGroup
+                          ? 'opacity-0 translate-y-full'
+                          : 'opacity-0 -translate-y-full'
                       }`}
                     >
                       {group.map((tech, index) => (

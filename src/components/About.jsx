@@ -29,7 +29,7 @@ const About = () => {
 
         <div className="relative bg-gray-900/30 backdrop-blur-sm border border-gray-800 rounded-2xl p-8 md:p-12 shadow-2xl">
           <div className="absolute -left-3 -top-3 text-6xl text-accent-green/30 font-serif">"</div>
-          <div className="text-lg md:text-xl text-gray-300 leading-relaxed px-4 md:px-8 relative z-10 space-y-4">
+          <div className="text-lg md:text-xl text-gray-300 leading-relaxed px-4 md:px-8 relative z-10 space-y-4 text-left md:text-center">
             <p>
               ¡Hola! Soy <span className="text-white font-semibold">León</span>, desarrollador web full stack con un año de experiencia. Egresado de la carrera Full Stack de <span className="text-white font-semibold">Coderhouse</span> y actualmente cursando la Tecnicatura Superior en Programación en la <span className="text-white font-semibold">UTN</span>.
             </p>
