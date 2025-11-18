@@ -1,8 +1,15 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 
-const ProjectCard = ({ title, description, technologies, image, link }) => {
+const ProjectCard = ({ title, description, technologies, image, link, index }) => {
   return (
-    <div className="group relative overflow-hidden rounded-2xl bg-[#0e0e0e] border border-gray-800/50 hover:border-gray-600 transition-all duration-500 hover:-translate-y-1 hover:shadow-2xl hover:shadow-black/50 h-full flex flex-col">
+    <motion.div 
+      className="group relative overflow-hidden rounded-2xl bg-[#0e0e0e] border border-gray-800/50 hover:border-gray-600 transition-all duration-500 hover:-translate-y-1 hover:shadow-2xl hover:shadow-black/50 h-full flex flex-col"
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{ duration: 0.6, delay: index * 0.15 }}
+    >
       {/* Project Image - 50% height */}
       {image && (
         <div className="w-full h-64 md:h-72 overflow-hidden rounded-t-2xl">
@@ -62,7 +69,7 @@ const ProjectCard = ({ title, description, technologies, image, link }) => {
           </a>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
@@ -118,7 +125,13 @@ const Projects = () => {
     <section id="projects" className="section-padding bg-black">
       <div className="max-w-7xl mx-auto">
         {/* Header con imagen */}
-        <div className="text-center space-y-4 mb-16">
+        <motion.div 
+          className="text-center space-y-4 mb-16"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.6 }}
+        >
           <img
             src="proyectospublicados-logo.png"
             alt="Proyectos publicados"
@@ -128,12 +141,12 @@ const Projects = () => {
           <p className="text-gray-400 text-base md:text-lg max-w-2xl mx-auto mt-6">
             Soluciones web diseñadas y desarrolladas para clientes de diversos rubros
           </p>
-        </div>
+        </motion.div>
 
         {/* Projects Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10">
           {projects.map((project, index) => (
-            <ProjectCard key={index} {...project} />
+            <ProjectCard key={index} {...project} index={index} />
           ))}
         </div>
       </div>

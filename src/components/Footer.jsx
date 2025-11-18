@@ -112,7 +112,7 @@ const Footer = () => {
         {/* Bottom bar */}
         <div className="mt-12 pt-8 border-t border-gray-800 text-center">
           <p className="text-gray-500 text-sm">
-            © {currentYear} Leon Comolli. Todos los derechos reservados.
+             {currentYear}. Leon Comolli. Hecho con amor. 
           </p>
         </div>
       </div>

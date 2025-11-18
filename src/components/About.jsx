@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 
 const About = () => {
   const scrollToContact = () => {
@@ -18,16 +19,28 @@ const About = () => {
   return (
     <section id="about" className="section-padding bg-gradient-to-b from-black via-gray-900/50 to-black">
       <div className="max-w-7xl mx-auto text-center space-y-12">
-        <div className="space-y-4">
+        <motion.div 
+          className="space-y-4"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.6 }}
+        >
           <img
             src="sobremi-logo.png"
             alt="Sobre mí"
             className="mx-auto w-[220px] md:w-[300px] lg:w-[360px] h-auto object-contain"
           />
           <div className="w-24 h-1 bg-accent-green mx-auto"></div>
-        </div>
+        </motion.div>
 
-        <div className="relative bg-gray-900/30 backdrop-blur-sm border border-gray-800 rounded-2xl p-8 md:p-12 shadow-2xl">
+        <motion.div 
+          className="relative bg-gray-900/30 backdrop-blur-sm border border-gray-800 rounded-2xl p-8 md:p-12 shadow-2xl"
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.7, delay: 0.2 }}
+        >
           <div className="absolute -left-3 -top-3 text-6xl text-accent-green/30 font-serif">"</div>
           <div className="text-lg md:text-xl text-gray-300 leading-relaxed px-4 md:px-8 relative z-10 space-y-4 text-left md:text-center">
             <p>
@@ -44,9 +57,15 @@ const About = () => {
             </p>
           </div>
           <div className="absolute -right-3 -bottom-3 text-6xl text-accent-green/30 font-serif">"</div>
-        </div>
+        </motion.div>
 
-        <div className="flex flex-wrap gap-4 justify-center mt-8">
+        <motion.div 
+          className="flex flex-wrap gap-4 justify-center mt-8"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+        >
           <button
             onClick={scrollToProjects}
             className="inline-flex items-center gap-2 px-6 py-2.5 bg-white text-black font-medium rounded-full hover:bg-gray-200 hover:shadow-lg hover:shadow-white/20 hover:scale-105 transition-all duration-300 cursor-pointer"
@@ -60,7 +79,7 @@ const About = () => {
           >
             Descargar CV
           </a>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

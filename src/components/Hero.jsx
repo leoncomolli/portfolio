@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
 import ClientSlider from './ClientSlider';
 
 const Hero = () => {
   const [currentTechGroup, setCurrentTechGroup] = useState(0);
-  const [groupAPosition, setGroupAPosition] = useState(0); // 0 = center, 100 = bottom, -100 = top
-  const [groupBPosition, setGroupBPosition] = useState(-100); // Start at top
+  const [groupAPosition, setGroupAPosition] = useState(0); // 0 = center, 110 = bottom, -110 = top
+  const [groupBPosition, setGroupBPosition] = useState(-110); // Start at top
 
   const technologies = [
     { name: 'React', icon: 'react.png' },
@@ -29,13 +30,13 @@ const Hero = () => {
         
         if (next === 0) {
           // Grupo A va a entrar
-          setGroupBPosition(100); // Grupo B sale hacia abajo
-          setTimeout(() => setGroupBPosition(-100), 700); // Después se reposiciona arriba
+          setGroupBPosition(110); // Grupo B sale hacia abajo
+          setTimeout(() => setGroupBPosition(-110), 700); // Después se reposiciona arriba
           setGroupAPosition(0); // Grupo A entra desde arriba
         } else {
           // Grupo B va a entrar
-          setGroupAPosition(100); // Grupo A sale hacia abajo
-          setTimeout(() => setGroupAPosition(-100), 700); // Después se reposiciona arriba
+          setGroupAPosition(110); // Grupo A sale hacia abajo
+          setTimeout(() => setGroupAPosition(-110), 700); // Después se reposiciona arriba
           setGroupBPosition(0); // Grupo B entra desde arriba
         }
         
@@ -58,17 +59,32 @@ const Hero = () => {
       <div className="max-w-7xl mx-auto w-full">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-32 items-center">
             {/* Left Side - Logo and Info */}
-            <div className="space-y-8">
-              <div className="w-full max-w-2xl">
+            <motion.div 
+              className="space-y-8"
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+            >
+              <motion.div 
+                className="w-full max-w-2xl"
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+              >
                 <img
                   src="logodev.png"
                   alt="Leon Comolli"
                   className="w-full h-auto object-contain"
                   draggable="false"
                 />
-              </div>
+              </motion.div>
 
-              <div className="space-y-6 border-l-2 border-accent-green pl-6">
+              <motion.div 
+                className="space-y-6 border-l-2 border-accent-green pl-6"
+                initial={{ opacity: 0, x: -30 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8, delay: 0.4 }}
+              >
                 <h3 className="text-2xl md:text-3xl font-semibold text-accent-green">
                   Desarrollador Full Stack
                 </h3>
@@ -97,10 +113,10 @@ const Hero = () => {
                 <div className="md:hidden relative overflow-hidden h-28">
                   {/* Grupo A: React, JS, Laravel */}
                   <div
-                    className="absolute w-full flex gap-4 justify-start"
+                    className="absolute w-full flex gap-4 justify-start mb-6"
                     style={{
                       transform: `translateY(${groupAPosition}%)`,
-                      transition: groupAPosition === -100 && currentTechGroup === 1 ? 'none' : 'transform 700ms ease-in-out'
+                      transition: groupAPosition === -110 && currentTechGroup === 1 ? 'none' : 'transform 0.7s cubic-bezier(0.4, 0, 0.2, 1)'
                     }}
                   >
                     {techGroups[0].map((tech, index) => (
@@ -123,10 +139,10 @@ const Hero = () => {
 
                   {/* Grupo B: Tailwind, MySQL, GitHub */}
                   <div
-                    className="absolute w-full flex gap-4 justify-start"
+                    className="absolute w-full flex gap-4 justify-start mb-6"
                     style={{
                       transform: `translateY(${groupBPosition}%)`,
-                      transition: groupBPosition === -100 && currentTechGroup === 0 ? 'none' : 'transform 700ms ease-in-out'
+                      transition: groupBPosition === -110 && currentTechGroup === 0 ? 'none' : 'transform 0.7s cubic-bezier(0.4, 0, 0.2, 1)'
                     }}
                   >
                     {techGroups[1].map((tech, index) => (
@@ -152,11 +168,16 @@ const Hero = () => {
                   Apasionado por el desarrollo web, creo soluciones que combinan estética, 
                   funcionalidad y rendimiento. Transformo ideas en experiencias digitales profesionales y escalables.
                 </p>
-              </div>
-            </div>
+              </motion.div>
+            </motion.div>
 
           {/* Right Side - Client Slider */}
-          <div className="flex flex-col justify-start">
+          <motion.div 
+            className="flex flex-col justify-start"
+            initial={{ opacity: 0, x: 30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+          >
             <ClientSlider />
             
             <div className="flex flex-wrap gap-4 justify-center mt-8">
@@ -173,12 +194,17 @@ const Hero = () => {
                 Contáctame
               </button>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
 
       {/* Scroll indicator */}
-      <div className="absolute bottom-10 md:bottom-10 bottom-16 left-1/2 transform -translate-x-1/2">
+      <motion.div 
+        className="absolute bottom-10 md:bottom-10 bottom-16 left-1/2 transform -translate-x-1/2"
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 1, repeat: Infinity, repeatType: "reverse", repeatDelay: 0.5 }}
+      >
         <svg 
           className="w-6 h-6 text-accent-green" 
           fill="none" 
@@ -192,7 +218,7 @@ const Hero = () => {
             d="M19 9l-7 7-7-7"
           />
         </svg>
-      </div>
+      </motion.div>
     </section>
   );
 };
