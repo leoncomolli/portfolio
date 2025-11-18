@@ -2,10 +2,10 @@ import React, { useState, useEffect } from 'react';
 
 const ClientSlider = () => {
   const clients = [
-    { name: 'Agrofina', logo: '/agrofina.png' },
-    { name: 'TuCatering', logo: '/tucatering.png' },
-    { name: 'Kern IT', logo: '/kernit.png' },
-    { name: 'Santo Fuego', logo: '/santofuego.png' },
+    { name: 'Agrofina', logo: 'agrofina.png' },
+    { name: 'TuCatering', logo: 'tucatering.png' },
+    { name: 'Kern IT', logo: 'kernit.png' },
+    { name: 'Santo Fuego', logo: 'santofuego.png' },
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);

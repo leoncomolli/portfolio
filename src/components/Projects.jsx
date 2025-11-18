@@ -70,45 +70,45 @@ const Projects = () => {
   const projects = [
     {
       title: 'Agrofina',
-      image: '/card-agrofina.jpg',
+      image: 'card-agrofina.jpg',
       description: 'Sitio institucional para empresa de agroquímicos con panel de administracion para la gestión integral de productos, novedades y noticias, con el objetivo de hacerlo autoadministrable.',
       technologies: [
-        { name: 'Laravel', icon: '/laravel.png' },
-        { name: 'React', icon: '/react.png' },
-        { name: 'MySQL', icon: '/mysql.png' },
-        { name: 'Tailwind', icon: '/tailwind_css.png' }
+        { name: 'Laravel', icon: 'laravel.png' },
+        { name: 'React', icon: 'react.png' },
+        { name: 'MySQL', icon: 'mysql.png' },
+        { name: 'Tailwind', icon: 'tailwind_css.png' }
       ],
       link: 'https://archillimatias.dev/'
     },
     {
       title: 'Tu  Catering',
-      image: '/card-tucatering.jpg',
+      image: 'card-tucatering.jpg',
       description: 'Landing page y sistema de gestión de catering escolar con administración de menús, control de pagos y panel para familias. Incluye calendario para reservar servicios, gestión de hijos y contratos.',
       technologies: [
-        { name: 'Laravel', icon: '/laravel.png' },
-        { name: 'React', icon: '/react.png' },
-        { name: 'MySQL', icon: '/mysql.png' },
-        { name: 'Tailwind', icon: '/tailwind_css.png' }
+        { name: 'Laravel', icon: 'laravel.png' },
+        { name: 'React', icon: 'react.png' },
+        { name: 'MySQL', icon: 'mysql.png' },
+        { name: 'Tailwind', icon: 'tailwind_css.png' }
       ],
       link: 'https://tucatering.com.ar/'
     },
     {
       title: 'Kern IT',
-      image: '/card-kernit.jpg',
+      image: 'card-kernit.jpg',
       description: 'Sitio institucional para empresa de software especializada en soluciones médicas con diseño profesional optimizado.',
       technologies: [
-        { name: 'React', icon: '/react.png' },
-        { name: 'Tailwind', icon: '/tailwind_css.png' }
+        { name: 'React', icon: 'react.png' },
+        { name: 'Tailwind', icon: 'tailwind_css.png' }
       ],
       link: 'https://kern-it.global/'
     },
     {
       title: 'Parrilla Santo Fuego',
-      image: '/card-santofuego.jpg',
+      image: 'card-santofuego.jpg',
       description: 'Landing page minimalista con enfoque gastronomico para parrilla, diseño de alto impacto visual.',
       technologies: [
-        { name: 'React', icon: '/react.png' },
-        { name: 'Tailwind', icon: '/tailwind_css.png' }
+        { name: 'React', icon: 'react.png' },
+        { name: 'Tailwind', icon: 'tailwind_css.png' }
       ],
       link: 'https://santo-fuego-landing.vercel.app/'
     }
@@ -120,7 +120,7 @@ const Projects = () => {
         {/* Header con imagen */}
         <div className="text-center space-y-4 mb-16">
           <img
-            src="/proyectospublicados-logo.png"
+            src="proyectospublicados-logo.png"
             alt="Proyectos publicados"
             className="mx-auto w-[280px] md:w-[380px] lg:w-[450px] h-auto mb-2"
             style={{ objectFit: 'contain' }}

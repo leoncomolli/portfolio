@@ -17,7 +17,7 @@ const Footer = () => {
           {/* Left - Name/Brand */}
           <div className="space-y-4">
             <img 
-              src="/logodev.png" 
+              src="logodev.png" 
               alt="Leon Comolli" 
               className="h-20 w-auto object-contain"
             />

@@ -3,12 +3,12 @@ import ClientSlider from './ClientSlider';
 
 const Hero = () => {
   const technologies = [
-    { name: 'React', icon: '/react.png' },
-    { name: 'JavaScript', icon: '/javascript.png' },
-    { name: 'Laravel', icon: '/laravel.png' },
-    { name: 'Tailwind', icon: '/tailwind_css.png' },
-    { name: 'MySQL', icon: '/mysql.png' },
-    { name: 'GitHub', icon: '/github.png' }
+    { name: 'React', icon: 'react.png' },
+    { name: 'JavaScript', icon: 'javascript.png' },
+    { name: 'Laravel', icon: 'laravel.png' },
+    { name: 'Tailwind', icon: 'tailwind_css.png' },
+    { name: 'MySQL', icon: 'mysql.png' },
+    { name: 'GitHub', icon: 'github.png' }
   ];
 
   const scrollToSection = (id) => {
@@ -26,7 +26,7 @@ const Hero = () => {
             <div className="space-y-8">
               <div className="w-full max-w-2xl">
                 <img
-                  src="/logodev.png"
+                  src="logodev.png"
                   alt="Leon Comolli"
                   className="w-full h-auto object-contain"
                   draggable="false"

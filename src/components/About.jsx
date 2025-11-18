@@ -20,7 +20,7 @@ const About = () => {
       <div className="max-w-7xl mx-auto text-center space-y-12">
         <div className="space-y-4">
           <img
-            src="/sobremi-logo.png"
+            src="sobremi-logo.png"
             alt="Sobre mí"
             className="mx-auto w-[220px] md:w-[300px] lg:w-[360px] h-auto object-contain"
           />
