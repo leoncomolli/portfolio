@@ -3,7 +3,6 @@ import ClientSlider from './ClientSlider';
 
 const Hero = () => {
   const [currentTechGroup, setCurrentTechGroup] = useState(0);
-  const [prevTechGroup, setPrevTechGroup] = useState(0);
 
   const technologies = [
     { name: 'React', icon: 'react.png' },
@@ -14,20 +13,20 @@ const Hero = () => {
     { name: 'GitHub', icon: 'github.png' }
   ];
 
-  // Split technologies into groups of 3 for mobile carousel
+  // Grupo A: React, JS, Laravel
+  // Grupo B: Tailwind, MySQL, GitHub
   const techGroups = [
-    technologies.slice(0, 3),
-    technologies.slice(3, 6)
+    technologies.slice(0, 3), // Grupo A
+    technologies.slice(3, 6)  // Grupo B
   ];
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setPrevTechGroup(currentTechGroup);
-      setCurrentTechGroup((prev) => (prev + 1) % techGroups.length);
+      setCurrentTechGroup((prev) => (prev + 1) % 2);
     }, 3000);
 
     return () => clearInterval(interval);
-  }, [techGroups.length, currentTechGroup]);
+  }, []);
 
   const scrollToSection = (id) => {
     const element = document.getElementById(id);
@@ -76,37 +75,55 @@ const Hero = () => {
                   ))}
                 </div>
 
-                {/* Mobile - Carousel with 3 technologies */}
+                {/* Mobile - Carousel vertical con 2 grupos de 3 tecnologías */}
                 <div className="md:hidden relative overflow-hidden h-28">
-                  {techGroups.map((group, groupIndex) => (
-                    <div
-                      key={groupIndex}
-                      className={`absolute w-full flex gap-4 justify-start transition-all duration-700 ease-in-out ${
-                        groupIndex === currentTechGroup
-                          ? 'opacity-100 translate-y-0'
-                          : groupIndex === prevTechGroup
-                          ? 'opacity-0 translate-y-full'
-                          : 'opacity-0 -translate-y-full'
-                      }`}
-                    >
-                      {group.map((tech, index) => (
-                        <div
-                          key={index}
-                          className="group flex flex-col items-center gap-2 p-3 bg-gray-900/50 border border-gray-700 rounded-lg"
-                          title={tech.name}
-                        >
-                          <img
-                            src={tech.icon}
-                            alt={tech.name}
-                            className="w-12 h-12 object-contain"
-                          />
-                          <span className="text-xs text-gray-400 group-hover:text-accent-green transition-colors">
-                            {tech.name}
-                          </span>
-                        </div>
-                      ))}
-                    </div>
-                  ))}
+                  {/* Grupo A: React, JS, Laravel */}
+                  <div
+                    className={`absolute w-full flex gap-4 justify-start transition-transform duration-700 ease-in-out ${
+                      currentTechGroup === 0 ? 'translate-y-0' : 'translate-y-full'
+                    }`}
+                  >
+                    {techGroups[0].map((tech, index) => (
+                      <div
+                        key={index}
+                        className="group flex flex-col items-center gap-2 p-3 bg-gray-900/50 border border-gray-700 rounded-lg"
+                        title={tech.name}
+                      >
+                        <img
+                          src={tech.icon}
+                          alt={tech.name}
+                          className="w-12 h-12 object-contain"
+                        />
+                        <span className="text-xs text-gray-400 group-hover:text-accent-green transition-colors">
+                          {tech.name}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* Grupo B: Tailwind, MySQL, GitHub */}
+                  <div
+                    className={`absolute w-full flex gap-4 justify-start transition-transform duration-700 ease-in-out ${
+                      currentTechGroup === 1 ? 'translate-y-0' : '-translate-y-full'
+                    }`}
+                  >
+                    {techGroups[1].map((tech, index) => (
+                      <div
+                        key={index}
+                        className="group flex flex-col items-center gap-2 p-3 bg-gray-900/50 border border-gray-700 rounded-lg"
+                        title={tech.name}
+                      >
+                        <img
+                          src={tech.icon}
+                          alt={tech.name}
+                          className="w-12 h-12 object-contain"
+                        />
+                        <span className="text-xs text-gray-400 group-hover:text-accent-green transition-colors">
+                          {tech.name}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
                 </div>
 
                 <p className="text-gray-400 text-lg leading-relaxed max-w-xl mt-2">
