@@ -79,9 +79,13 @@ const Hero = () => {
                 <div className="md:hidden relative overflow-hidden h-28">
                   {/* Grupo A: React, JS, Laravel */}
                   <div
-                    className={`absolute w-full flex gap-4 justify-start transition-transform duration-700 ease-in-out ${
-                      currentTechGroup === 0 ? 'translate-y-0' : 'translate-y-full'
-                    }`}
+                    className="absolute w-full flex gap-4 justify-start"
+                    style={{
+                      transform: currentTechGroup === 0 
+                        ? 'translateY(0)' 
+                        : 'translateY(100%)',
+                      transition: 'transform 700ms ease-in-out'
+                    }}
                   >
                     {techGroups[0].map((tech, index) => (
                       <div
@@ -103,9 +107,13 @@ const Hero = () => {
 
                   {/* Grupo B: Tailwind, MySQL, GitHub */}
                   <div
-                    className={`absolute w-full flex gap-4 justify-start transition-transform duration-700 ease-in-out ${
-                      currentTechGroup === 1 ? 'translate-y-0' : '-translate-y-full'
-                    }`}
+                    className="absolute w-full flex gap-4 justify-start"
+                    style={{
+                      transform: currentTechGroup === 1 
+                        ? 'translateY(0)' 
+                        : 'translateY(-100%)',
+                      transition: 'transform 700ms ease-in-out'
+                    }}
                   >
                     {techGroups[1].map((tech, index) => (
                       <div
