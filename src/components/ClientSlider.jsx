@@ -26,7 +26,7 @@ const ClientSlider = () => {
         </h4>
       </div>
       
-      <div className="relative w-full flex items-center justify-center flex-1">
+      <div className="relative w-full flex items-center justify-center flex-1 px-4">
         {clients.map((client, index) => (
           <div
             key={index}
@@ -40,7 +40,7 @@ const ClientSlider = () => {
             <img
               src={client.logo}
               alt={client.name}
-              className="max-h-64 w-auto max-w-md object-contain filter brightness-0 invert"
+              className="max-h-64 w-auto max-w-full object-contain filter brightness-0 invert px-4"
               draggable="false"
             />
           </div>

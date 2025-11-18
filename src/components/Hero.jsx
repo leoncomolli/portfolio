@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import ClientSlider from './ClientSlider';
 
 const Hero = () => {
+  const [currentTechGroup, setCurrentTechGroup] = useState(0);
+
   const technologies = [
     { name: 'React', icon: 'react.png' },
     { name: 'JavaScript', icon: 'javascript.png' },
@@ -10,6 +12,20 @@ const Hero = () => {
     { name: 'MySQL', icon: 'mysql.png' },
     { name: 'GitHub', icon: 'github.png' }
   ];
+
+  // Split technologies into groups of 3 for mobile carousel
+  const techGroups = [
+    technologies.slice(0, 3),
+    technologies.slice(3, 6)
+  ];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentTechGroup((prev) => (prev + 1) % techGroups.length);
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, [techGroups.length]);
 
   const scrollToSection = (id) => {
     const element = document.getElementById(id);
@@ -38,7 +54,8 @@ const Hero = () => {
                   Desarrollador Full Stack
                 </h3>
 
-                <div className="flex flex-wrap gap-4 justify-start">
+                {/* Desktop - All technologies */}
+                <div className="hidden md:flex flex-wrap gap-4 justify-start">
                   {technologies.map((tech, index) => (
                     <div
                       key={index}
@@ -53,6 +70,39 @@ const Hero = () => {
                       <span className="text-xs text-gray-400 group-hover:text-accent-green transition-colors">
                         {tech.name}
                       </span>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Mobile - Carousel with 3 technologies */}
+                <div className="md:hidden relative overflow-hidden h-32">
+                  {techGroups.map((group, groupIndex) => (
+                    <div
+                      key={groupIndex}
+                      className={`absolute w-full flex gap-4 justify-start transition-all duration-700 ease-in-out ${
+                        groupIndex === currentTechGroup
+                          ? 'opacity-100 translate-y-0'
+                          : groupIndex < currentTechGroup
+                          ? 'opacity-0 -translate-y-full'
+                          : 'opacity-0 translate-y-full'
+                      }`}
+                    >
+                      {group.map((tech, index) => (
+                        <div
+                          key={index}
+                          className="group flex flex-col items-center gap-2 p-3 bg-gray-900/50 border border-gray-700 rounded-lg"
+                          title={tech.name}
+                        >
+                          <img
+                            src={tech.icon}
+                            alt={tech.name}
+                            className="w-12 h-12 object-contain"
+                          />
+                          <span className="text-xs text-gray-400 group-hover:text-accent-green transition-colors">
+                            {tech.name}
+                          </span>
+                        </div>
+                      ))}
                     </div>
                   ))}
                 </div>
