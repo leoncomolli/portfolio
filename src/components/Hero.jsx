@@ -82,8 +82,6 @@ const Hero = () => {
                       className={`absolute w-full flex gap-4 justify-start transition-all duration-700 ease-in-out ${
                         groupIndex === currentTechGroup
                           ? 'opacity-100 translate-y-0'
-                          : groupIndex === (currentTechGroup + 1) % techGroups.length
-                          ? 'opacity-0 -translate-y-full'
                           : 'opacity-0 translate-y-full'
                       }`}
                     >
