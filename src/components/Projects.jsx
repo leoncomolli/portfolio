@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-const ProjectCard = ({ title, description, technologies, image, link, index }) => {
+const ProjectCard = ({ title, description, technologies, image, link, github, index }) => {
   return (
     <motion.div 
       className="group relative overflow-hidden rounded-2xl bg-[#0e0e0e] border border-gray-800/50 hover:border-gray-600 transition-all duration-500 hover:-translate-y-1 hover:shadow-2xl hover:shadow-black/50 h-full flex flex-col"
@@ -54,18 +54,26 @@ const ProjectCard = ({ title, description, technologies, image, link, index }) =
           </div>
         )}
 
-        {/* CTA Button */}
-        <div className="mt-auto pt-4">
+        {/* CTA Buttons */}
+        <div className="mt-auto pt-4 flex gap-3">
           <a
             href={link}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-6 py-2.5 border border-white/80 text-white text-sm font-medium rounded-full hover:bg-white hover:text-black hover:shadow-lg hover:shadow-white/20 hover:scale-105 transition-all duration-300 cursor-pointer"
+            className="inline-flex items-center gap-2 px-6 py-2.5 bg-white text-black text-sm font-medium rounded-full hover:bg-gray-200 hover:shadow-lg hover:shadow-white/20 hover:scale-105 transition-all duration-300 cursor-pointer"
           >
-            Ver proyecto
+            Ir al sitio web
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>
+          </a>
+          <a
+            href={github || '#'}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-6 py-2.5 border border-white/80 text-white text-sm font-medium rounded-full hover:bg-white hover:text-black hover:shadow-lg hover:shadow-white/20 hover:scale-105 transition-all duration-300 cursor-pointer"
+          >
+            Ir al repositorio GitHub
           </a>
         </div>
       </div>

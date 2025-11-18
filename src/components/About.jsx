@@ -44,7 +44,7 @@ const About = () => {
           <div className="absolute -left-3 -top-3 text-6xl text-accent-green/30 font-serif">"</div>
           <div className="text-lg md:text-xl text-gray-300 leading-relaxed px-4 md:px-8 relative z-10 space-y-4 text-left md:text-center">
             <p>
-              ¡Hola! Soy <span className="text-white font-semibold">León</span>, desarrollador web full stack con un año de experiencia. Egresado de la carrera Full Stack de <span className="text-white font-semibold">Coderhouse</span> y actualmente cursando la Tecnicatura Superior en Programación en la <span className="text-white font-semibold">UTN</span>.
+              ¡Hola! Soy <span className="text-white font-semibold">León</span>, desarrollador web full stack con un año de experiencia. Técnico informático recibido y egresado de la carrera Full Stack de <span className="text-white font-semibold">Coderhouse.</span> Actualmente cursando la Tecnicatura Superior en Programación en la <span className="text-white font-semibold">UTN</span>.
             </p>
             <p>
               Me dedico a crear soluciones que mezclen la <span className="text-accent-green">estética</span> con <span className="text-accent-green">funcionalidad</span> de una manera eficiente y veloz, eligiendo en cada caso las tecnologías que mejor se adapten a lo que tu proyecto necesita.

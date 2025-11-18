@@ -65,19 +65,14 @@ const Hero = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
             >
-              <motion.div 
-                className="w-full max-w-2xl"
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-              >
+              <div className="w-full max-w-2xl flex flex-col items-center">
                 <img
                   src="logodev.png"
                   alt="Leon Comolli"
                   className="w-full h-auto object-contain"
                   draggable="false"
                 />
-              </motion.div>
+              </div>
 
               <motion.div 
                 className="space-y-6 border-l-2 border-accent-green pl-6"
@@ -200,7 +195,7 @@ const Hero = () => {
 
       {/* Scroll indicator */}
       <motion.div 
-        className="absolute bottom-10 md:bottom-10 bottom-16 left-1/2 transform -translate-x-1/2"
+        className="hidden md:block absolute bottom-10 md:bottom-10 bottom-16 left-1/2 transform -translate-x-1/2"
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 1, repeat: Infinity, repeatType: "reverse", repeatDelay: 0.5 }}
