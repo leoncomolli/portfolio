@@ -29,7 +29,7 @@ const ProjectCard = ({ title, description, technologies, image, link, github, in
         </h3>
 
         {/* Description */}
-        <p className="text-gray-400 leading-relaxed text-sm md:text-base line-clamp-3">
+        <p className="text-gray-400 leading-relaxed text-sm md:text-base">
           {description}
         </p>
 
