@@ -55,14 +55,14 @@ const ProjectCard = ({ title, description, technologies, image, link, github, in
         )}
 
         {/* CTA Buttons */}
-        <div className="mt-auto pt-4 flex gap-3">
+        <div className="mt-auto pt-4 flex gap-3 flex-wrap items-center">
           <a
             href={link}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-6 py-2.5 bg-white text-black text-sm font-medium rounded-full hover:bg-gray-200 hover:shadow-lg hover:shadow-white/20 hover:scale-105 transition-all duration-300 cursor-pointer"
+            className="inline-flex items-center gap-2 px-6 py-2.5 bg-white text-black text-sm font-medium rounded-full hover:bg-gray-200 hover:shadow-lg hover:shadow-white/20 hover:scale-105 transition-all duration-300 cursor-pointer whitespace-nowrap"
           >
-            Ir al sitio web
+            <span className="inline-block">Ir al sitio web</span>
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>
@@ -71,9 +71,9 @@ const ProjectCard = ({ title, description, technologies, image, link, github, in
             href={github || '#'}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-6 py-2.5 border border-white/80 text-white text-sm font-medium rounded-full hover:bg-white hover:text-black hover:shadow-lg hover:shadow-white/20 hover:scale-105 transition-all duration-300 cursor-pointer"
+            className="inline-flex items-center gap-2 px-6 py-2.5 border border-white/80 text-white text-sm font-medium rounded-full hover:bg-white hover:text-black hover:shadow-lg hover:shadow-white/20 hover:scale-105 transition-all duration-300 cursor-pointer whitespace-nowrap"
           >
-            Ir al repositorio GitHub
+            <span className="inline-block">Ir al repositorio GitHub</span>
           </a>
         </div>
       </div>

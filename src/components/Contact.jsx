@@ -55,15 +55,15 @@ const Contact = () => {
               </div>
 
               {/* CTA Buttons */}
-              <div className="flex flex-row gap-3">
+              <div className="flex flex-row gap-3 flex-wrap items-center justify-center">
                 <a
                   href={mailtoLink}
-                  className="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-white text-black text-base font-semibold rounded-full hover:bg-gray-200 hover:shadow-lg hover:shadow-white/20 hover:scale-105 transition-all duration-300 cursor-pointer"
+                  className="inline-flex items-center gap-2 px-8 py-3.5 bg-white text-black text-base font-semibold rounded-full hover:bg-gray-200 hover:shadow-lg hover:shadow-white/20 hover:scale-105 transition-all duration-300 cursor-pointer whitespace-nowrap"
                 >
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
                   </svg>
-                  Enviar mail
+                  <span className="inline-block">Enviar mail</span>
                 </a>
                 <button
                   type="button"
@@ -92,9 +92,9 @@ const Contact = () => {
                       document.removeEventListener('mousemove', moveToast);
                     }, 1800);
                   }}
-                  className="inline-flex items-center justify-center gap-2 px-8 py-3.5 border border-white/80 text-white text-base font-semibold rounded-full hover:bg-white hover:text-black hover:shadow-lg hover:shadow-white/20 hover:scale-105 transition-all duration-300 cursor-pointer"
+                  className="inline-flex items-center gap-2 px-8 py-3.5 border border-white/80 text-white text-base font-semibold rounded-full hover:bg-white hover:text-black hover:shadow-lg hover:shadow-white/20 hover:scale-105 transition-all duration-300 cursor-pointer whitespace-nowrap"
                 >
-                  Copiar mail
+                  <span className="inline-block">Copiar mail</span>
                 </button>
               </div>
 
