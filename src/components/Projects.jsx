@@ -35,21 +35,23 @@ const ProjectCard = ({ title, description, technologies, image, link, github, in
 
         {/* Technologies Pills */}
         {technologies && (
-          <div className="flex flex-wrap gap-2 pt-2">
+          <div className="flex flex-wrap gap-0 pt-2 items-center">
             {technologies.map((tech, index) => (
-              <span 
-                key={index}
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium bg-[#0e0e0e] text-white border border-white rounded-full"
-              >
-                {tech.icon && (
-                  <img 
-                    src={tech.icon} 
-                    alt={tech.name}
-                    className="w-3.5 h-3.5 object-contain"
-                  />
+              <React.Fragment key={index}>
+                {index !== 0 && (
+                  <span className="mx-3 h-5 w-px bg-gray-500 opacity-60 inline-block"></span>
                 )}
-                {tech.name}
-              </span>
+                <span className="inline-flex items-center gap-1.5 text-xs font-medium text-white">
+                  {tech.icon && (
+                    <img 
+                      src={tech.icon} 
+                      alt={tech.name}
+                      className="w-4 h-4 object-contain"
+                    />
+                  )}
+                  {tech.name}
+                </span>
+              </React.Fragment>
             ))}
           </div>
         )}
