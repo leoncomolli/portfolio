@@ -67,8 +67,7 @@ const Footer = () => {
               </li>
             </ul>
           </div>
-
-          {/* Right - Contact Info */}
+          
           <div className="space-y-4">
             <h4 className="text-white font-semibold">Contacto</h4>
             <div className="space-y-3">
@@ -81,7 +80,17 @@ const Footer = () => {
                 </svg>
                 leoncomolli@gmail.com
               </a>
-              
+              <a
+                href="https://wa.me/541137878205"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center text-gray-400 hover:text-white transition-colors duration-200 group"
+              >
+                <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M20.52 3.48A12.07 12.07 0 0012 0C5.37 0 .01 5.37.01 12c0 2.12.56 4.19 1.62 6.01L0 24l6.09-1.59A11.94 11.94 0 0012 24c6.63 0 12-5.37 12-12 0-3.21-1.25-6.23-3.48-8.52zM12 22c-1.93 0-3.81-.5-5.47-1.45l-.39-.23-3.62.95.97-3.53-.25-.41A9.94 9.94 0 012 12C2 6.48 6.48 2 12 2c2.61 0 5.07 1.02 6.93 2.87A9.93 9.93 0 0122 12c0 5.52-4.48 10-10 10zm5.13-7.36c-.28-.14-1.65-.81-1.9-.9-.25-.09-.43-.14-.61.14-.18.28-.7.9-.86 1.08-.16.18-.32.2-.6.07-.28-.14-1.18-.43-2.25-1.37-.83-.74-1.39-1.65-1.55-1.93-.16-.28-.02-.43.12-.57.13-.13.28-.34.42-.51.14-.17.18-.29.28-.48.09-.19.05-.36-.02-.5-.07-.14-.61-1.47-.84-2.01-.22-.53-.45-.46-.61-.47-.16-.01-.35-.01-.54-.01-.19 0-.5.07-.76.34-.26.27-1 1-.97 2.43.03 1.43.98 2.81 1.12 3 .14.19 2.09 3.2 5.08 4.36.71.25 1.26.4 1.69.51.71.18 1.36.16 1.87.1.57-.07 1.65-.67 1.89-1.32.23-.65.23-1.21.16-1.32-.07-.11-.25-.18-.53-.32z"/>
+                </svg>
+                +11-3787-8205
+              </a>
               <a
                 href="https://github.com/leoncomolli"
                 target="_blank"
@@ -93,7 +102,6 @@ const Footer = () => {
                 </svg>
                 GitHub
               </a>
-
               <a
                 href="https://linkedin.com/in/leoncomolli"
                 target="_blank"
@@ -109,10 +117,13 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Bottom bar */}
+        {/* Bottom bar */}  
         <div className="mt-12 pt-8 border-t border-gray-800 text-center">
-          <p className="text-gray-500 text-sm">
-             {currentYear}. Leon Comolli. Hecho con amor. 
+          <p className="text-gray-500 text-sm flex items-center justify-center gap-0.5">
+             {currentYear}. Leon Comolli. Hecho con amor
+            <svg className="w-4 h-4 text-white inline align-middle" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" />
+            </svg><span className="-ml-1">.</span>
           </p>
         </div>
       </div>
