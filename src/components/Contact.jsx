@@ -109,7 +109,7 @@ const Contact = () => {
               {/* Divider */}
               <div className="w-full border-t border-gray-800 my-4"></div>
 
-              {/* Social Links */}
+             {/* Social Links */}
               <div className="text-center space-y-4 w-full">
                 <p className="text-gray-400 text-sm">También me encontrás en</p>
                 
