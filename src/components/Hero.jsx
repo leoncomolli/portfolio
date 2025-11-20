@@ -55,7 +55,7 @@ const Hero = () => {
   };
 
   return (
-    <section id="hero" className="min-h-screen flex items-center section-padding pt-32 relative">
+    <section id="hero" className="min-h-screen md:h-screen flex items-center section-padding pt-32 relative">
       <div className="max-w-7xl mx-auto w-full">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-32 items-center">
             {/* Left Side - Logo and Info */}
