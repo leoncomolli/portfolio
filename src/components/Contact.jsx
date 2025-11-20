@@ -6,7 +6,7 @@ const Contact = () => {
 
   return (
     <section id="contact" className="section-padding bg-gradient-to-b from-black via-gray-900/30 to-black">
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-7xl mx-auto px-4">
         {/* Header */}
         <motion.div 
           className="text-center space-y-4 mb-8"
@@ -16,7 +16,6 @@ const Contact = () => {
           transition={{ duration: 0.6 }}
         >
           <img src="contacto-logo.png" alt="Contacto Logo" className="mx-auto h-24 w-auto" />
-          <div className="w-24 h-1 bg-accent-green mx-auto"></div>
         </motion.div>
 
         {/* Main Content */}
@@ -36,7 +35,7 @@ const Contact = () => {
 
           {/* Email Card */}
           <motion.div 
-            className="bg-gradient-to-br from-gray-900/80 to-gray-900/40 border border-gray-800 rounded-2xl p-8 md:p-12 hover:border-gray-600 hover:border-accent-green/50 hover:-translate-y-1 hover:shadow-2xl hover:shadow-black/50 transition-all duration-300"
+            className="bg-gradient-to-br from-gray-900/80 to-gray-900/40 border border-gray-800 rounded-2xl p-8 md:p-12 hover:border-gray-600 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-black/50"
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
@@ -48,19 +47,19 @@ const Contact = () => {
                 <p className="text-gray-400 text-sm mb-2">Escribime a</p>
                 <a 
                   href={mailtoLink}
-                  className="text-2xl md:text-3xl font-semibold text-white hover:text-accent-green transition-colors duration-300"
+                  className="text-2xl md:text-3xl font-semibold text-white hover:text-green-500 transition-colors duration-300"
                 >
                   leoncomolli@gmail.com
                 </a>
               </div>
 
               {/* CTA Buttons */}
-              <div className="flex flex-row gap-3 flex-wrap items-center justify-center">
+              <div className="flex flex-row gap-2 sm:gap-3 items-center justify-center flex-nowrap">
                 <a
                   href={mailtoLink}
-                  className="inline-flex items-center gap-2 px-8 py-3.5 bg-white text-black text-base font-semibold rounded-full hover:bg-gray-200 hover:shadow-lg hover:shadow-white/20 hover:scale-105 transition-all duration-300 cursor-pointer whitespace-nowrap"
+                  className="inline-flex items-center gap-1.5 px-4 sm:px-8 py-2.5 sm:py-4 bg-white text-black text-sm sm:text-base font-semibold rounded-full hover:bg-gray-200 hover:shadow-lg hover:shadow-white/20 hover:scale-105 transition-all duration-300 cursor-pointer whitespace-nowrap"
                 >
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
                   </svg>
                   <span className="inline-block">Enviar mail</span>
@@ -92,25 +91,28 @@ const Contact = () => {
                       document.removeEventListener('mousemove', moveToast);
                     }, 1800);
                   }}
-                  className="inline-flex items-center gap-2 px-8 py-3.5 border border-white/80 text-white text-base font-semibold rounded-full hover:bg-white hover:text-black hover:shadow-lg hover:shadow-white/20 hover:scale-105 transition-all duration-300 cursor-pointer whitespace-nowrap"
+                  className="inline-flex items-center gap-1.5 px-4 sm:px-8 py-2.5 sm:py-4 border border-white/80 text-white text-sm sm:text-base font-semibold rounded-full hover:bg-white hover:text-black hover:shadow-lg hover:shadow-white/20 hover:scale-105 transition-all duration-300 cursor-pointer whitespace-nowrap"
                 >
+                  <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                  </svg>
                   <span className="inline-block">Copiar mail</span>
                 </button>
               </div>
 
               {/* Response Time */}
-              <p className="text-sm text-gray-500 flex items-center gap-2">
-                <svg className="w-4 h-4 text-accent-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <p className="text-sm text-gray-500 flex items-center gap-2 whitespace-nowrap mb-3">
+                <svg className="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                 </svg>
                 Seras respondido, por mi, a la brevedad.
               </p>
 
               {/* Divider */}
-              <div className="w-full border-t border-gray-800 my-4"></div>
+              <div className="w-full border-t border-gray-800 my-3"></div>
 
-             {/* Social Links */}
-              <div className="text-center space-y-4 w-full">
+              {/* Social Links */}
+              <div className="text-center space-y-4 w-full mt-3">
                 <p className="text-gray-400 text-sm">También me encontrás en</p>
                 
                 <div className="flex flex-col sm:flex-row justify-center gap-3">
