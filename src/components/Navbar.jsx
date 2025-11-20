@@ -60,7 +60,7 @@ const Navbar = () => {
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12 py-4">
-        <ul className="flex justify-center items-center gap-8 md:gap-12 relative">
+        <ul className="flex justify-center items-center gap-4 sm:gap-8 md:gap-12 relative">
           {/* Animated underline */}
           <div 
             className="absolute bottom-0 h-0.5 bg-white transition-all duration-500 ease-out"
@@ -75,7 +75,7 @@ const Navbar = () => {
               <button
                 ref={(el) => (navRefs.current[item.id] = el)}
                 onClick={() => scrollToSection(item.id)}
-                className={`text-gray-300 hover:text-white transition-all duration-200 font-medium cursor-pointer pb-1 ${
+                className={`text-gray-300 hover:text-white transition-all duration-200 font-medium cursor-pointer pb-1 whitespace-nowrap text-base sm:text-base md:text-lg ${
                   activeSection === item.id ? 'text-white' : ''
                 }`}
               >
