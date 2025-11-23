@@ -33,23 +33,23 @@ const ProjectCard = ({ title, description, technologies, image, link, github, in
           {description}
         </p>
 
-        {/* Technologies Pills */}
+   {/* Technologies Pills */}
         {technologies && (
-          <div className="flex flex-nowrap gap-1.5 sm:gap-2 pt-2 items-center overflow-x-auto">
+          <div className="flex flex-nowrap gap-1 sm:gap-2 pt-2 items-center overflow-x-auto">
             {technologies.map((tech, index) => (
               <React.Fragment key={index}>
                 {index !== 0 && (
-                  <span className="mx-1.5 sm:mx-2 h-5 w-px bg-gray-500 opacity-60 inline-block flex-shrink-0"></span>
+                  <span className="mx-1 sm:mx-2 h-4 sm:h-5 w-px bg-gray-500 opacity-60 inline-block flex-shrink-0"></span>
                 )}
-                <span className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-medium text-white whitespace-nowrap flex-shrink-0">
+                <span className="inline-flex items-center gap-1 sm:gap-1.5 text-xs sm:text-sm font-medium text-white whitespace-nowrap flex-shrink-0">
                   {tech.icon && (
                     <img 
                       src={tech.icon} 
                       alt={tech.name}
-                      className="w-4 h-4 sm:w-5 sm:h-5 object-contain"
+                      className="w-3.5 h-3.5 sm:w-5 sm:h-5 object-contain"
                     />
                   )}
-                  <span className="text-xs sm:text-sm md:text-base">{tech.name}</span>
+                  <span className="text-[10.5px] sm:text-sm md:text-base">{tech.name}</span>
                 </span>
               </React.Fragment>
             ))}
