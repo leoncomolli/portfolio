@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import ClientSlider from './ClientSlider';
+import LiquidEther from './LiquidEther';
 
 const Hero = () => {
   const [currentTechGroup, setCurrentTechGroup] = useState(0);
@@ -55,8 +56,29 @@ const Hero = () => {
   };
 
   return (
-    <section id="hero" className="min-h-screen md:h-screen flex items-center section-padding pt-32 relative">
-      <div className="max-w-7xl mx-auto w-full">
+    <section id="hero" className="min-h-screen md:h-screen flex items-center section-padding pt-32 relative overflow-hidden">
+      {/* Liquid Ether Background */}
+      <div className="absolute inset-0 z-0">
+        <LiquidEther
+          colors={['#1e3a8a', '#374151', '#111827']}
+          mouseForce={20}
+          cursorSize={100}
+          isViscous={false}
+          viscous={30}
+          iterationsViscous={32}
+          iterationsPoisson={32}
+          resolution={0.5}
+          isBounce={false}
+          autoDemo={true}
+          autoSpeed={0.5}
+          autoIntensity={2.2}
+          takeoverDuration={0.25}
+          autoResumeDelay={3000}
+          autoRampDuration={0.6}
+        />
+      </div>
+
+      <div className="max-w-7xl mx-auto w-full relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-32 items-center">
             {/* Left Side - Logo and Info */}
             <motion.div 
