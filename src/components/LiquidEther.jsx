@@ -78,6 +78,8 @@ export default function LiquidEther({
         this.fboHeight = null;
         this.time = 0;
         this.delta = 0;
+        this.deltaSmoothingFactor = 0.1;
+        this.smoothedDelta = 0.016;
         this.container = null;
         this.renderer = null;
         this.clock = null;
@@ -106,7 +108,12 @@ export default function LiquidEther({
         if (this.renderer) this.renderer.setSize(this.width, this.height, false);
       }
       update() {
-        this.delta = this.clock.getDelta();
+        let rawDelta = this.clock.getDelta();
+        // Limitar delta a valores razonables (máx 0.1s, mín 0.001s)
+        rawDelta = Math.max(0.001, Math.min(rawDelta, 0.1));
+        // Aplicar smoothing exponencial para evitar saltos
+        this.smoothedDelta = this.smoothedDelta * (1 - this.deltaSmoothingFactor) + rawDelta * this.deltaSmoothingFactor;
+        this.delta = this.smoothedDelta;
         this.time += this.delta;
       }
     }
@@ -188,7 +195,7 @@ export default function LiquidEther({
         this.mouseMoved = true;
         this.timer = window.setTimeout(() => {
           this.mouseMoved = false;
-        }, 100);
+        }, 300);
       }
       setNormalized(nx, ny) {
         this.coords.set(nx, ny);
@@ -244,11 +251,18 @@ export default function LiquidEther({
             this.coords_old.copy(this.coords);
             this.diff.set(0, 0);
           } else {
-            const k = t * t * (3 - 2 * t);
+            // Usar easing ease-in-out cúbico para transición más suave
+            const k = t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
             this.coords.copy(this.takeoverFrom).lerp(this.takeoverTo, k);
           }
         }
         this.diff.subVectors(this.coords, this.coords_old);
+        // Limitar la magnitud del diff para evitar cambios muy bruscos (reducido a 0.05)
+        const maxDiff = 0.05;
+        const diffLen = this.diff.length();
+        if (diffLen > maxDiff) {
+          this.diff.multiplyScalar(maxDiff / diffLen);
+        }
         this.coords_old.copy(this.coords);
         if (this.coords_old.x === 0 && this.coords_old.y === 0) this.diff.set(0, 0);
         if (this.isAutoActive && !this.takeoverActive) this.diff.multiplyScalar(this.autoIntensity);
@@ -303,7 +317,8 @@ export default function LiquidEther({
         this.mouse.isAutoActive = true;
         let dtSec = (now - this.lastTime) / 1000;
         this.lastTime = now;
-        if (dtSec > 0.2) dtSec = 0.016;
+        // Limitar delta time más estrictamente para evitar saltos
+        dtSec = Math.max(0.008, Math.min(dtSec, 0.033));
         const dir = this._tmpDir.subVectors(this.target, this.current);
         const dist = dir.length();
         if (dist < 0.01) {
@@ -314,7 +329,8 @@ export default function LiquidEther({
         let ramp = 1;
         if (this.rampDurationMs > 0) {
           const t = Math.min(1, (now - this.activationTime) / this.rampDurationMs);
-          ramp = t * t * (3 - 2 * t);
+          // Usar easing más suave (ease-in-out cúbico)
+          ramp = t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
         }
         const step = this.speed * dtSec * ramp;
         const move = Math.min(step, dist);
@@ -977,6 +993,10 @@ export default function LiquidEther({
       start() {
         if (this.running) return;
         this.running = true;
+        // Resetear delta del clock para evitar salto grande después de pause
+        if (Common.clock) {
+          Common.clock.getDelta();
+        }
         this._loop();
       }
       pause() {
@@ -1059,13 +1079,18 @@ export default function LiquidEther({
     io.observe(container);
     intersectionObserverRef.current = io;
 
+    let resizeTimeout = null;
     const ro = new ResizeObserver(() => {
       if (!webglRef.current) return;
-      if (resizeRafRef.current) cancelAnimationFrame(resizeRafRef.current);
-      resizeRafRef.current = requestAnimationFrame(() => {
-        if (!webglRef.current) return;
-        webglRef.current.resize();
-      });
+      // Debouncing: esperar 150ms antes de aplicar resize
+      if (resizeTimeout) clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(() => {
+        if (resizeRafRef.current) cancelAnimationFrame(resizeRafRef.current);
+        resizeRafRef.current = requestAnimationFrame(() => {
+          if (!webglRef.current) return;
+          webglRef.current.resize();
+        });
+      }, 150);
     });
     ro.observe(container);
     resizeObserverRef.current = ro;
