@@ -56,7 +56,7 @@ const Hero = () => {
   };
 
   return (
-    <section id="hero" className="h-screen flex items-center section-padding py-16 md:py-20 relative overflow-hidden">
+    <section id="hero" className="min-h-screen h-screen flex items-center px-4 py-12 sm:py-16 md:py-20 lg:py-24 relative overflow-hidden">
       {/* Liquid Ether Background */}
       <div className="absolute inset-0 w-full h-full z-0">
         <LiquidEther
@@ -79,15 +79,15 @@ const Hero = () => {
         />
       </div>
 
-      <div className="max-w-7xl mx-auto w-full relative z-10 h-full flex items-center">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-12 xl:gap-20 items-center w-full">{/* Left Side - Logo and Info */}
+      <div className="max-w-7xl mx-auto w-full relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 lg:gap-12 xl:gap-20 items-center w-full">{/* Left Side - Logo and Info */}
             <motion.div 
-              className="space-y-4 lg:space-y-6"
+              className="space-y-3 sm:space-y-4 lg:space-y-6"
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
             >
-              <div className="w-full max-w-md lg:max-w-xl xl:max-w-2xl flex flex-col items-center">
+              <div className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-xl xl:max-w-2xl mx-auto flex flex-col items-center">
                 <img
                   src="logodev.png"
                   alt="Leon Comolli"
@@ -97,12 +97,12 @@ const Hero = () => {
               </div>
 
               <motion.div 
-                className="space-y-3 lg:space-y-4 border-l-2 border-accent-green pl-4 lg:pl-6"
+                className="space-y-2 sm:space-y-3 lg:space-y-4 border-l-2 border-accent-green pl-3 sm:pl-4 lg:pl-6"
                 initial={{ opacity: 0, x: -30 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
               >
-                <h3 className="text-xl md:text-2xl lg:text-3xl font-semibold text-accent-green">
+                <h3 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold text-accent-green">
                   Desarrollador Full Stack
                 </h3>
 
@@ -127,10 +127,10 @@ const Hero = () => {
                 </div>
 
                 {/* Mobile - Carousel vertical con 2 grupos de 3 tecnologías */}
-                <div className="md:hidden relative overflow-hidden h-28">
+                <div className="md:hidden relative overflow-hidden h-24 sm:h-28">
                   {/* Grupo A: React, JS, Laravel */}
                   <div
-                    className="absolute w-full flex gap-4 justify-start mb-6"
+                    className="absolute w-full flex gap-3 sm:gap-4 justify-start mb-6"
                     style={{
                       transform: `translateY(${groupAPosition}%)`,
                       transition: groupAPosition === -110 && currentTechGroup === 1 ? 'none' : 'transform 0.7s cubic-bezier(0.4, 0, 0.2, 1)'
@@ -139,13 +139,13 @@ const Hero = () => {
                     {techGroups[0].map((tech, index) => (
                       <div
                         key={index}
-                        className="group flex flex-col items-center gap-2 p-3 bg-gray-900/50 border border-gray-700 rounded-lg"
+                        className="group flex flex-col items-center gap-1 sm:gap-2 p-2 sm:p-3 bg-gray-900/50 border border-gray-700 rounded-lg"
                         title={tech.name}
                       >
                         <img
                           src={tech.icon}
                           alt={tech.name}
-                          className="w-12 h-12 object-contain"
+                          className="w-10 h-10 sm:w-12 sm:h-12 object-contain"
                         />
                         <span className="text-xs text-gray-400 group-hover:text-accent-green transition-colors">
                           {tech.name}
@@ -156,7 +156,7 @@ const Hero = () => {
 
                   {/* Grupo B: Tailwind, MySQL, GitHub */}
                   <div
-                    className="absolute w-full flex gap-4 justify-start mb-6"
+                    className="absolute w-full flex gap-3 sm:gap-4 justify-start mb-6"
                     style={{
                       transform: `translateY(${groupBPosition}%)`,
                       transition: groupBPosition === -110 && currentTechGroup === 0 ? 'none' : 'transform 0.7s cubic-bezier(0.4, 0, 0.2, 1)'
@@ -165,13 +165,13 @@ const Hero = () => {
                     {techGroups[1].map((tech, index) => (
                       <div
                         key={index}
-                        className="group flex flex-col items-center gap-2 p-3 bg-gray-900/50 border border-gray-700 rounded-lg"
+                        className="group flex flex-col items-center gap-1 sm:gap-2 p-2 sm:p-3 bg-gray-900/50 border border-gray-700 rounded-lg"
                         title={tech.name}
                       >
                         <img
                           src={tech.icon}
                           alt={tech.name}
-                          className="w-12 h-12 object-contain"
+                          className="w-10 h-10 sm:w-12 sm:h-12 object-contain"
                         />
                         <span className="text-xs text-gray-400 group-hover:text-accent-green transition-colors">
                           {tech.name}
@@ -181,7 +181,7 @@ const Hero = () => {
                   </div>
                 </div>
 
-                <p className="text-gray-400 text-sm md:text-base lg:text-lg leading-relaxed max-w-xl">
+                <p className="text-gray-400 text-xs sm:text-sm md:text-base lg:text-lg leading-relaxed max-w-xl">
                   Apasionado por el desarrollo web, creo soluciones que combinan estética, 
                   funcionalidad y rendimiento. Transformo ideas en experiencias digitales profesionales y escalables.
                 </p>
@@ -197,16 +197,16 @@ const Hero = () => {
           >
             <ClientSlider />
             
-            <div className="flex flex-wrap gap-3 justify-center mt-4 lg:mt-6">
+            <div className="flex flex-wrap gap-2 sm:gap-3 justify-center mt-3 sm:mt-4 lg:mt-6">
               <button
                 onClick={() => scrollToSection('projects')}
-                className="inline-flex items-center gap-2 px-4 md:px-6 py-2 text-sm md:text-base bg-white text-black font-medium rounded-full hover:bg-gray-200 hover:shadow-lg hover:shadow-white/20 hover:scale-105 transition-all duration-300 cursor-pointer"
+                className="inline-flex items-center gap-1 sm:gap-2 px-3 sm:px-4 md:px-6 py-1.5 sm:py-2 text-xs sm:text-sm md:text-base bg-white text-black font-medium rounded-full hover:bg-gray-200 hover:shadow-lg hover:shadow-white/20 hover:scale-105 transition-all duration-300 cursor-pointer"
               >
                 Ver mis proyectos
               </button>
               <button
                 onClick={() => scrollToSection('contact')}
-                className="inline-flex items-center gap-2 px-4 md:px-6 py-2 text-sm md:text-base border border-white/80 text-white font-medium rounded-full hover:bg-white hover:text-black hover:shadow-lg hover:shadow-white/20 hover:scale-105 transition-all duration-300 cursor-pointer"
+                className="inline-flex items-center gap-1 sm:gap-2 px-3 sm:px-4 md:px-6 py-1.5 sm:py-2 text-xs sm:text-sm md:text-base border border-white/80 text-white font-medium rounded-full hover:bg-white hover:text-black hover:shadow-lg hover:shadow-white/20 hover:scale-105 transition-all duration-300 cursor-pointer"
               >
                 Contáctame
               </button>
