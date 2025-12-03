@@ -56,9 +56,9 @@ const Hero = () => {
   };
 
   return (
-    <section id="hero" className="h-screen flex items-center section-padding pt-32 relative overflow-hidden">
+    <section id="hero" className="h-screen flex items-center section-padding py-16 md:py-20 relative overflow-hidden">
       {/* Liquid Ether Background */}
-      <div className="absolute inset-0 z-0">
+      <div className="absolute inset-0 w-full h-full z-0">
         <LiquidEther
           colors={['#1e3a8a', '#374151', '#111827']}
           mouseForce={20}
@@ -75,18 +75,19 @@ const Hero = () => {
           takeoverDuration={0.25}
           autoResumeDelay={3000}
           autoRampDuration={0.6}
+          className="w-full h-full"
         />
       </div>
 
-      <div className="max-w-7xl mx-auto w-full relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-20 xl:gap-32 items-center">{/* Left Side - Logo and Info */}
+      <div className="max-w-7xl mx-auto w-full relative z-10 h-full flex items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-12 xl:gap-20 items-center w-full">{/* Left Side - Logo and Info */}
             <motion.div 
-              className="space-y-8"
+              className="space-y-4 lg:space-y-6"
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
             >
-              <div className="w-full max-w-2xl flex flex-col items-center">
+              <div className="w-full max-w-md lg:max-w-xl xl:max-w-2xl flex flex-col items-center">
                 <img
                   src="logodev.png"
                   alt="Leon Comolli"
@@ -96,12 +97,12 @@ const Hero = () => {
               </div>
 
               <motion.div 
-                className="space-y-6 border-l-2 border-accent-green pl-6"
+                className="space-y-3 lg:space-y-4 border-l-2 border-accent-green pl-4 lg:pl-6"
                 initial={{ opacity: 0, x: -30 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
               >
-                <h3 className="text-2xl md:text-3xl font-semibold text-accent-green">
+                <h3 className="text-xl md:text-2xl lg:text-3xl font-semibold text-accent-green">
                   Desarrollador Full Stack
                 </h3>
 
@@ -180,7 +181,7 @@ const Hero = () => {
                   </div>
                 </div>
 
-                <p className="text-gray-400 text-sm md:text-base lg:text-lg leading-relaxed max-w-xl mt-2">
+                <p className="text-gray-400 text-sm md:text-base lg:text-lg leading-relaxed max-w-xl">
                   Apasionado por el desarrollo web, creo soluciones que combinan estética, 
                   funcionalidad y rendimiento. Transformo ideas en experiencias digitales profesionales y escalables.
                 </p>
@@ -196,16 +197,16 @@ const Hero = () => {
           >
             <ClientSlider />
             
-            <div className="flex flex-wrap gap-3 md:gap-4 justify-center mt-6 md:mt-8">
+            <div className="flex flex-wrap gap-3 justify-center mt-4 lg:mt-6">
               <button
                 onClick={() => scrollToSection('projects')}
-                className="inline-flex items-center gap-2 px-5 md:px-6 py-2 md:py-2.5 text-sm md:text-base bg-white text-black font-medium rounded-full hover:bg-gray-200 hover:shadow-lg hover:shadow-white/20 hover:scale-105 transition-all duration-300 cursor-pointer"
+                className="inline-flex items-center gap-2 px-4 md:px-6 py-2 text-sm md:text-base bg-white text-black font-medium rounded-full hover:bg-gray-200 hover:shadow-lg hover:shadow-white/20 hover:scale-105 transition-all duration-300 cursor-pointer"
               >
                 Ver mis proyectos
               </button>
               <button
                 onClick={() => scrollToSection('contact')}
-                className="inline-flex items-center gap-2 px-5 md:px-6 py-2 md:py-2.5 text-sm md:text-base border border-white/80 text-white font-medium rounded-full hover:bg-white hover:text-black hover:shadow-lg hover:shadow-white/20 hover:scale-105 transition-all duration-300 cursor-pointer"
+                className="inline-flex items-center gap-2 px-4 md:px-6 py-2 text-sm md:text-base border border-white/80 text-white font-medium rounded-full hover:bg-white hover:text-black hover:shadow-lg hover:shadow-white/20 hover:scale-105 transition-all duration-300 cursor-pointer"
               >
                 Contáctame
               </button>
