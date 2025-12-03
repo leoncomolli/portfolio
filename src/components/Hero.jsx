@@ -106,17 +106,17 @@ const Hero = () => {
                 </h3>
 
                 {/* Desktop - All technologies */}
-                <div className="hidden md:flex flex-wrap gap-4 justify-start">
+                <div className="hidden md:flex flex-wrap gap-2 lg:gap-4 justify-start">
                   {technologies.map((tech, index) => (
                     <div
                       key={index}
-                      className="group flex flex-col items-center gap-2 p-3 bg-gray-900/50 border border-gray-700 rounded-lg hover:border-accent-green/50 transition-all duration-300 hover:scale-105"
+                      className="group flex flex-col items-center gap-1 lg:gap-2 p-2 lg:p-3 bg-gray-900/50 border border-gray-700 rounded-lg hover:border-accent-green/50 transition-all duration-300 hover:scale-105"
                       title={tech.name}
                     >
                       <img
                         src={tech.icon}
                         alt={tech.name}
-                        className="w-12 h-12 object-contain"
+                        className="w-8 h-8 lg:w-12 lg:h-12 object-contain"
                       />
                       <span className="text-xs text-gray-400 group-hover:text-accent-green transition-colors">
                         {tech.name}
@@ -180,7 +180,7 @@ const Hero = () => {
                   </div>
                 </div>
 
-                <p className="text-gray-400 text-lg leading-relaxed max-w-xl mt-2">
+                <p className="text-gray-400 text-sm md:text-base lg:text-lg leading-relaxed max-w-xl mt-2">
                   Apasionado por el desarrollo web, creo soluciones que combinan estética, 
                   funcionalidad y rendimiento. Transformo ideas en experiencias digitales profesionales y escalables.
                 </p>
@@ -196,16 +196,16 @@ const Hero = () => {
           >
             <ClientSlider />
             
-            <div className="flex flex-wrap gap-4 justify-center mt-8">
+            <div className="flex flex-wrap gap-3 md:gap-4 justify-center mt-6 md:mt-8">
               <button
                 onClick={() => scrollToSection('projects')}
-                className="inline-flex items-center gap-2 px-6 py-2.5 bg-white text-black font-medium rounded-full hover:bg-gray-200 hover:shadow-lg hover:shadow-white/20 hover:scale-105 transition-all duration-300 cursor-pointer"
+                className="inline-flex items-center gap-2 px-5 md:px-6 py-2 md:py-2.5 text-sm md:text-base bg-white text-black font-medium rounded-full hover:bg-gray-200 hover:shadow-lg hover:shadow-white/20 hover:scale-105 transition-all duration-300 cursor-pointer"
               >
                 Ver mis proyectos
               </button>
               <button
                 onClick={() => scrollToSection('contact')}
-                className="inline-flex items-center gap-2 px-6 py-2.5 border border-white/80 text-white font-medium rounded-full hover:bg-white hover:text-black hover:shadow-lg hover:shadow-white/20 hover:scale-105 transition-all duration-300 cursor-pointer"
+                className="inline-flex items-center gap-2 px-5 md:px-6 py-2 md:py-2.5 text-sm md:text-base border border-white/80 text-white font-medium rounded-full hover:bg-white hover:text-black hover:shadow-lg hover:shadow-white/20 hover:scale-105 transition-all duration-300 cursor-pointer"
               >
                 Contáctame
               </button>
@@ -216,7 +216,7 @@ const Hero = () => {
 
       {/* Scroll indicator */}
       <motion.div 
-        className="hidden md:block absolute bottom-10 md:bottom-10 bottom-16 left-1/2 transform -translate-x-1/2"
+        className="hidden lg:block absolute bottom-6 md:bottom-8 lg:bottom-10 left-1/2 transform -translate-x-1/2"
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 1, repeat: Infinity, repeatType: "reverse", repeatDelay: 0.5 }}
