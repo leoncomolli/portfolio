@@ -56,7 +56,7 @@ const Hero = () => {
   };
 
   return (
-    <section id="hero" className="min-h-screen md:h-screen flex items-center section-padding pt-32 relative overflow-hidden">
+    <section id="hero" className="h-screen flex items-center section-padding pt-32 relative overflow-hidden">
       {/* Liquid Ether Background */}
       <div className="absolute inset-0 z-0">
         <LiquidEther
@@ -79,8 +79,7 @@ const Hero = () => {
       </div>
 
       <div className="max-w-7xl mx-auto w-full relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-32 items-center">
-            {/* Left Side - Logo and Info */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-20 xl:gap-32 items-center">{/* Left Side - Logo and Info */}
             <motion.div 
               className="space-y-8"
               initial={{ opacity: 0, y: 50 }}

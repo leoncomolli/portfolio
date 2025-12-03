@@ -1,7 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
-const ProjectCard = ({ title, description, technologies, image, link, github, index }) => {
+const ProjectCard = ({ title, description, technologies, image, link, viewRoute, index }) => {
   return (
     <motion.div 
       className="group relative overflow-hidden rounded-2xl bg-[#0e0e0e] border border-gray-800/50 hover:border-gray-600 transition-all duration-500 hover:-translate-y-1 hover:shadow-2xl hover:shadow-black/50 h-full flex flex-col"
@@ -69,14 +70,12 @@ const ProjectCard = ({ title, description, technologies, image, link, github, in
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>
           </a>
-          <a
-            href={github || '#'}
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            to={viewRoute}
             className="inline-flex items-center gap-2 px-6 py-2.5 border border-white/80 text-white text-sm font-medium rounded-full hover:bg-white hover:text-black hover:shadow-lg hover:shadow-white/20 hover:scale-105 transition-all duration-300 cursor-pointer whitespace-nowrap"
           >
-            <span className="inline-block">Ir al repositorio GitHub</span>
-          </a>
+            <span className="inline-block">Conocer caso</span>
+          </Link>
         </div>
       </div>
     </motion.div>
@@ -95,7 +94,8 @@ const Projects = () => {
         { name: 'MySQL', icon: 'mysql.png' },
         { name: 'Tailwind', icon: 'tailwind_css.png' }
       ],
-      link: 'https://archillimatias.dev/'
+      link: 'https://archillimatias.dev/',
+      viewRoute: '/proyecto/agrofina'
     },
     {
       title: 'Tu  Catering',
@@ -107,7 +107,8 @@ const Projects = () => {
         { name: 'MySQL', icon: 'mysql.png' },
         { name: 'Tailwind', icon: 'tailwind_css.png' }
       ],
-      link: 'https://tucatering.com.ar/'
+      link: 'https://tucatering.com.ar/',
+      viewRoute: '/proyecto/tucatering'
     },
     {
       title: 'Kern IT',
@@ -117,7 +118,8 @@ const Projects = () => {
         { name: 'React', icon: 'react.png' },
         { name: 'Tailwind', icon: 'tailwind_css.png' }
       ],
-      link: 'https://kern-it.global/'
+      link: 'https://kern-it.global/',
+      viewRoute: '/proyecto/kernit'
     },
     {
       title: 'Parrilla Santo Fuego',
@@ -127,7 +129,8 @@ const Projects = () => {
         { name: 'React', icon: 'react.png' },
         { name: 'Tailwind', icon: 'tailwind_css.png' }
       ],
-      link: 'https://santo-fuego-landing.vercel.app/'
+      link: 'https://santo-fuego-landing.vercel.app/',
+      viewRoute: '/proyecto/santofuego'
     }
   ];
 
